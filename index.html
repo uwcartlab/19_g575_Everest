@@ -18,6 +18,8 @@
       <link rel="stylesheet" href="css/style.ie.css">
       <![endif]-->
    </head>
+   
+     
    <body>
       <div class="page-wrapper chiller-theme toggled">
          <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -74,8 +76,13 @@
             <!-- sidebar-content  -->
          </nav>
          <main class="page-content">
+            <button id="buttonweather">The button</button>
+            <div id="weatherwidget">
+                  <script type='text/javascript' src='https://darksky.net/widget/default/27.9879,86.9248/us12/en.js?width=100%&height=350&title=Mount Everest&textColor=535353&bgColor=d0edfa&transparency=false&skyColor=undefined&fontFamily=Palatino&customFont=&units=us&htColor=535353&ltColor=535353&displaySum=yes&displayHeader=yes'></script>
+            </div>
             <section>
                <div class="container-fluid">
+                  <nav id="menu"></nav>
                   <div id="map"></div>
                   <div id="panel" class="sequencePanel">
                      <!--pannel for sequence buttons-->
