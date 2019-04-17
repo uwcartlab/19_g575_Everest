@@ -502,6 +502,8 @@ html, body, #container {
     margin: 0;
     padding: 0;
     padding: 10px;
+    content: "\f6fc";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
     text-decoration: none;
     border-bottom: 1px solid rgba(0,0,0,0.25);
     text-align: center;

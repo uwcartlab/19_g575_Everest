@@ -1,4 +1,3 @@
-/* Map of GeoJSON data from emission.geojson */
 
 // Global variable to hold layer
 var searchLayer;
@@ -37,7 +36,7 @@ function createMap(){
         }
         });
         });
-        var toggleableLayerIds = [ 'contours'];
+        var toggleableLayerIds = ['contours'];
  
         for (var i = 0; i < toggleableLayerIds.length; i++) {
         var id = toggleableLayerIds[i];
@@ -91,4 +90,17 @@ $("#buttonweather").click(function(){
     $("#weatherwidget").toggle();
   });
 
-$(document).ready(createMap); // calling create map function on document ready
+$(document).ready(); // calling create map function on document ready
+
+/*$(document).ready(function(){        
+  $('#test').modal('show')
+   }); */
+     window.onload = function () {
+console.log(localStorage.getItem("hasCodeRunBefore"));
+    if (localStorage.getItem("hasCodeRunBefore") == false) {
+      $('#test').modal('show');
+        localStorage.setItem("hasCodeRunBefore", true);
+    }
+
+    createMap();
+}
