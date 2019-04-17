@@ -23,12 +23,12 @@
    <body>
       <div class="page-wrapper chiller-theme toggled">
          <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-         <i class="fas fa-bars"></i>
+         <i class="fas fa-chevron-left"></i>
          </a>
          <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                <div class="sidebar-brand">
-                  <a href="#">App Name</a>
+                  <a href="#">Information</a>
                   <div id="close-sidebar">
                      <i class="fas fa-times"></i>
                   </div>
@@ -47,7 +47,7 @@
                      </li>
                      <li class="sidebar-dropdown">
                         <a href="#">
-                        <i class="far fa-gem"></i>
+                        <i class="fa fa-mountain"></i>
                         <span>Elevation</span>
                         </a>
                      </li>
@@ -59,13 +59,13 @@
                      </li>
                      <li class="sidebar-dropdown">
                         <a href="#">
-                        <i class="fa fa-globe"></i>
+                        <i class="fas fa-hiking"></i>
                         <span>Distance to Summit</span>
                         </a>
                      </li>
                      <li class="sidebar-dropdown">
                         <a href="#">
-                        <i class="fa fa-globe"></i>
+                        <i class="fas fa-hiking fa-flip-horizontal"></i>
                         <span>Distance to Base Camp</span>
                         </a>
                      </li>
@@ -76,16 +76,16 @@
             <!-- sidebar-content  -->
          </nav>
          <main class="page-content">
-            <button id="buttonweather">The button</button>
+            <button id="buttonweather"  type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Everest Weather"><i class="fas fa-cloud-sun"></i></button>
             <div id="weatherwidget">
-                  <script type='text/javascript' src='https://darksky.net/widget/default/27.9879,86.9248/us12/en.js?width=100%&height=350&title=Mount Everest&textColor=535353&bgColor=d0edfa&transparency=false&skyColor=undefined&fontFamily=Palatino&customFont=&units=us&htColor=535353&ltColor=535353&displaySum=yes&displayHeader=yes'></script>
+                  <script type='text/javascript' src='https://darksky.net/widget/default/27.9879,86.9248/us12/en.js?width=100%&height=350&title=Mount Everest&textColor=000000&bgColor=DDFEFF&transparency=false&skyColor=undefined&fontFamily=Palatino&customFont=&units=us&htColor=000000&ltColor=000000&displaySum=yes&displayHeader=no'></script>
             </div>
             <section>
                <div class="container-fluid">
                   <nav id="menu"></nav>
                   <div id="map"></div>
                   <div id="panel" class="sequencePanel">
-                     <!--pannel for sequence buttons-->
+                     <!--panel for sequence buttons-->
                   </div>
                </div>
             </section>

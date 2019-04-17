@@ -2,7 +2,9 @@
 
 // Global variable to hold layer
 var searchLayer;
-
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 //function to instantiate the Leaflet map
 function createMap(){
     //create the map
@@ -22,7 +24,7 @@ function createMap(){
         url: 'mapbox://mapbox.mapbox-terrain-v2'
         });
         map.addLayer({
-        'id': 'contours',
+        'id': 'Elevation',
         'type': 'line',
         'source': 'contours',
         'source-layer': 'contour',
@@ -37,7 +39,7 @@ function createMap(){
         }
         });
         });
-        var toggleableLayerIds = [ 'contours'];
+        var toggleableLayerIds = [ 'Elevation'];
  
         for (var i = 0; i < toggleableLayerIds.length; i++) {
         var id = toggleableLayerIds[i];

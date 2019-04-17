@@ -171,7 +171,7 @@ html, body, #container {
   /*----------------show sidebar button----------------*/
   #show-sidebar {
     position: fixed;
-    right: 25px;
+    right: 10px;
     top: 10px;
     border-radius: 50%;
     width: 35px;
