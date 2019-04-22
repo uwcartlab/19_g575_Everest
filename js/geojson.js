@@ -16,7 +16,6 @@ function createMap(){
     });
 
     map.on('load', function () {
-    
          
         map.addSource('contours', {
         type: 'vector',
@@ -28,16 +27,17 @@ function createMap(){
         'source': 'contours',
         'source-layer': 'contour',
         'layout': {
-        'visibility': 'visible',
-        'line-join': 'round',
-        'line-cap': 'round'
+          'visibility': 'none',
+          'line-join': 'round',
+          'line-cap': 'round'
         },
         'paint': {
         'line-color': '#877b59',
-        'line-width': 1
+        'line-width': 1,
         }
         });
-        });
+        
+      });
 
         var toggleableLayerIds = [ 'Elevation'];
 
@@ -47,7 +47,7 @@ function createMap(){
          
         var link = document.createElement('a');
         link.href = '#';
-        link.className = 'active';
+        //link.className = 'active';
         link.textContent = id;
          
         link.onclick = function (e) {
@@ -75,8 +75,8 @@ function createMap(){
 
 
 function createSequenceControls(map,attributes){
-$('#panel').append('<input class="range-slider" style="margin: 10px 10px 10px 10px;width: 93%;" type="range">');
-$('#panel').append('<div class="row" style="text-align: center;"><div class="col-6"><button class="skip btn-sm btn btn-outline-info" id="reverse"><i class="fas fa-angle-double-left"> Reverse</i></button></div> <div class="col-6"><button class="skip btn-sm btn btn-outline-info" id="forward">Skip <i class="fas fa-angle-double-right"></i></button></div></div>');
+//$('#panel').append('<input class="range-slider" style="margin: 10px 10px 10px 10px;width: 93%;" type="range">');
+$('#panel').append('<div class="row" style="text-align: center;"><div class="col-4"><button class="skip btn-sm btn" id="reverse"><i class="fas fa-backward"></i></button></div> <div class="col-4"><button class="skip btn-sm btn" id="play"><i class="fas fa-play"></i></button></div> <div class="col-4"><button class="skip btn-sm btn" id="forward"><i class="fas fa-forward"></i></button></div></div>');
 
     //set slider attributes
     $('.range-slider').attr({
@@ -94,12 +94,14 @@ $("#buttonweather").click(function(){
     $("#weatherwidget").toggle();
   });
 
-$(document).ready(); // calling create map function on document ready
+//$(document).ready(); // calling create map function on document ready
 
-/*$(document).ready(function(){        
-  $('#test').modal('show')
-   }); */
-     window.onload = function () {
+$(document).ready(function(){        
+    $('#welcomeWindow').modal('show');
+    createMap();
+    createSequenceControls();
+   }); 
+  /*   window.onload = function () {
 console.log(localStorage.getItem("hasCodeRunBefore"));
     if (localStorage.getItem("hasCodeRunBefore") == false) {
       $('#test').modal('show');
@@ -107,4 +109,4 @@ console.log(localStorage.getItem("hasCodeRunBefore"));
     }
 
     createMap();
-}
+}*/

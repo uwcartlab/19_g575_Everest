@@ -44,14 +44,15 @@ html, body, #container {
   background-color: #fff0;
   color: #fff;
   border: none;}
+
 .sequencePanel{
-  width: 350px;
-    height: 120px;
-    z-index: 999;
-    position: absolute;
-    bottom: 5%;
-    /* left: 50px; */
-    background-color: #00000087;
+  width: 210px;
+  height: 55px;
+  z-index: 1;
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+  background-color: #00000087;
 }
 #attribute-legend{
   background-color: #f5f5f5;
@@ -490,6 +491,7 @@ html, body, #container {
     top: 10px;
     left: 10px;
     border-radius: 3px;
+   
     width: 120px;
     border: 1px solid rgba(0,0,0,0.4);
     font-family: 'Open Sans', sans-serif;
@@ -501,9 +503,7 @@ html, body, #container {
     display: block;
     margin: 0;
     padding: 0;
-    padding: 10px;
-    content: "\f6fc";  /* this is your text. You can also use UTF-8 character codes as I do here */
-    font-family: FontAwesome;
+    padding: 3px;
     text-decoration: none;
     border-bottom: 1px solid rgba(0,0,0,0.25);
     text-align: center;
@@ -519,24 +519,51 @@ html, body, #container {
     }
      
     #menu a.active {
-    background-color: #3887be;
+    background-color: #6c757d;
     color: #ffffff;
     }
      
     #menu a.active:hover {
-    background: #3074a4;
+    background: #6c757d;
     }
 
     /*-----weather widget--*/
     #weatherwidget{
-      z-index: 99;
+      z-index: 1;
       position: absolute;
       width: 250px;
+      top: 10%;
+      left: 0.5%;
     }
 
     #buttonweather{
       z-index: 99;
       position: absolute;
-      bottom: 20%;
+      bottom: 5%;
+      left:0.5%;
 
     }
+
+    /*----- welcome window------*/
+    #welcome{
+      background-color: #563d7c;
+      background: linear-gradient(rgba(251, 254, 255, 0.78), rgba(4, 202, 249, 0.38)), 
+      url('../images/everest.jpg');
+      background-repeat: no-repeat;
+      background-size: cover; 
+      
+    } 
+
+    .modal-header {
+      border-bottom: none;
+    }
+
+    .modal-footer  {
+      border-top: none;
+    }
+
+    .modal-title {
+      margin-bottom: 0;
+      line-height: 1.5;
+      font-family: inherit;
+  }
