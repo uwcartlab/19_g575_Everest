@@ -78,6 +78,9 @@
          <main class="page-content">
 
             <button id="buttonweather"  type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Everest Weather"><i class="fas fa-cloud-sun"></i></button>
+            <div class='overlay'>
+               <button id='replay'>Replay</button>
+               </div>
             <div id="weatherwidget" style="display:none;">
                   <script type='text/javascript' src='https://darksky.net/widget/default/27.9879,86.9248/us12/en.js?width=100%&height=350&title=Mount Everest&textColor=000000&bgColor=DDFEFF&transparency=false&skyColor=undefined&fontFamily=Palatino&customFont=&units=us&htColor=000000&ltColor=000000&displaySum=yes&displayHeader=no'></script>
 
@@ -126,6 +129,7 @@
       <!--put your external script links here-->
       <!--<script type="text/javascript" src="js/tutorial.js"></script>-->
       <script type="text/javascript" src="js/leaflet-search.src.js"></script>
+      <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js' charset='utf-8'></script>
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
       <script type="text/javascript" src="js/geojson.js"></script>
       <script type="text/javascript" src="js/sidebar.js"></script>
