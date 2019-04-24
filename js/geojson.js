@@ -48,7 +48,7 @@ var route = {
   // Number of steps to use in the arc and animation, more steps means
   // a smoother arc and animation, but too many steps will result in a
   // low frame rate
-  var steps = 500;
+  var steps = 1000;
   
   // Draw an arc between the `origin` & `destination` of the two points
   for (var i = 0; i < lineDistance; i += lineDistance / steps) {
@@ -83,8 +83,6 @@ var route = {
         }
         });
         
-      });
-      map.on('load', function () {
         // Add a source and layer displaying a point which will be animated in a circle.
         map.addSource('route', {
         "type": "geojson",
@@ -122,7 +120,28 @@ var route = {
         function animate() {
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
+        var test= [86.873429886718341, 27.99640285954478]
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
+
+        //console.log(point.features[0].geometry.coordinates)
+        //console.log(point.features[0].geometry.coordinates[0] == test[0])
+        if (point.features[0].geometry.coordinates[0] == test[0] && point.features[0].geometry.coordinates[1] == test[1]){
+          
+          var popup = new mapboxgl.Popup({ offset: 25 })
+          .setText('Construction on the Washington Monument began in 1848.');
+          
+          // create DOM element for the marker
+          var el = document.createElement('div');
+          el.id = 'marker';
+         console.log(route.features[0].geometry.coordinates[counter]);
+          // create the marker
+          new mapboxgl.Marker(el)
+          .setLngLat(test)
+          .setPopup(popup) // sets a popup on this marker
+          .addTo(map)
+          .togglePopup();
+
+        }
         
         // Calculate the bearing to ensure the icon is rotated to match the route arc
         // The bearing is calculate between the current point and the next point, except
@@ -218,7 +237,7 @@ $("#buttonweather").click(function(){
 //$(document).ready(); // calling create map function on document ready
 
 $(document).ready(function(){        
-    $('#welcomeWindow').modal('show');
+    //$('#welcomeWindow').modal('show');
     createMap();
     createSequenceControls();
    }); 
