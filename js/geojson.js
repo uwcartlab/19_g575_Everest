@@ -11,7 +11,7 @@ function createMap(){
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nishidilipsontakke/cjuhnd62s559x1fqmt6kccmfe',
-      center: [86.91, 27.99],
+      center: [86.9, 27.985],
       zoom: 13
     });
 // A simple line from origin to destination.
