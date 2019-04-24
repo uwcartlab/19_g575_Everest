@@ -29,6 +29,13 @@ html, body, #container {
     overflow: auto;
 }
 
+#replay {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  z-index: 99999;
+}
+
 .leaflet-popup-content-wrapper {
  border-radius: 0px; 
 }
