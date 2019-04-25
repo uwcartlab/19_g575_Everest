@@ -158,7 +158,12 @@ html, body, #container {
     transition: all 0.3s ease;
   }
   
- 
+  #replay{
+   position: absolute;
+   left: 140px;
+   z-index: 10;
+ }
+
   /*----------------toggeled sidebar----------------*/
   
   .page-wrapper.toggled .sidebar-wrapper {
