@@ -127,7 +127,36 @@ var route = {
         function animate() {
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
+        var test = [[86.85719586641274, 28.00647209182954], [86.8716322029027, 27.994135151807278], 
+        [86.90004164732451, 27.978094160888368], [86.92898406576529, 27.97894389655487], [86.92529072310032, 27.988033661887066]];
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
+
+        //console.log(point.features[0].geometry.coordinates)
+        //console.log(point.features[0].geometry.coordinates[counter + 1])
+
+        //console.log(point.features[0].geometry.coordinates);
+        console.log(test[0][1])
+
+        for (a in test) {
+          if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
+            console.log("test");
+            
+            // *find how to insert newline
+            var popup = new mapboxgl.Popup({ offset: 0 })
+              .setText("Base Camp-                                                             Elevation: 17,600 ft (5,380 m); \n Oxygen Content: 11%; Distance to Summit: 11,435 ft (3,485 m)");
+            
+            // create DOM element for the marker
+            var el = document.createElement('div');
+            el.id = 'marker';
+            console.log(route.features[0].geometry.coordinates[counter]);
+            // create the marker
+            new mapboxgl.Marker(el)
+              .setLngLat(test[a])
+              .setPopup(popup) // sets a popup on this marker
+              .addTo(map)
+              .togglePopup();
+          }
+        }
         
         
         // Calculate the bearing to ensure the icon is rotated to match the route arc
