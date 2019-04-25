@@ -29,13 +29,6 @@ html, body, #container {
     overflow: auto;
 }
 
-#replay {
-  position: absolute;
-  top: 30px;
-  left: 20px;
-  z-index: 99999;
-}
-
 .leaflet-popup-content-wrapper {
  border-radius: 0px; 
 }
@@ -563,7 +556,7 @@ html, body, #container {
     /*----- welcome window------*/
     #welcome{
       background-color: #563d7c;
-      background: linear-gradient(rgba(251, 254, 255, 0.78), rgba(4, 202, 249, 0.38)), 
+      background: linear-gradient(rgba(251, 254, 255, 0.78), rgba(57, 215, 255, 0.38)), 
       url('../images/everest.jpg');
       background-repeat: no-repeat;
       background-size: cover; 
