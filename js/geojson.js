@@ -129,6 +129,7 @@ var route = {
         // the index to access the arc.
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
         
+        
         // Calculate the bearing to ensure the icon is rotated to match the route arc
         // The bearing is calculate between the current point and the next point, except
         // at the end of the arc use the previous point and the current point
