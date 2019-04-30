@@ -126,273 +126,21 @@ var route = {
         }
         });
          
+        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92529072310032, 27.98803366188707]];
+        var flag = false; // detect wether popup triggers
         function animate() {
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
-        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92529072310032, 27.98803366188707]];
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
-
-        console.log(point.features[0].geometry.coordinates);
+        
+       // console.log(point.features[0].geometry.coordinates);
         //console.log(point.features[0].geometry.coordinates[counter + 1])
 
         //console.log(point.features[0].geometry.coordinates);
         //console.log(test[0][1])
         //var div;
 
-        for (a in test) {
-          if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
-            //console.log("test");
-            
-            // *find how to insert newline
-            if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
-            var popup = new mapboxgl.Popup({ offset: 0 })
-              .setText("Base Camp");
-
-              var div = document.getElementById('elevation');
-              div.innerHTML = '';
-              div.innerHTML = '17,600 ft (5,380 m)';
-
-              var div2 = document.getElementById('oxygen');
-              div2.innerHTML = '';
-              div2.innerHTML = '11%';
-              
-              var div3 = document.getElementById('distToSummit');
-              div3.innerHTML = '';
-              div3.innerHTML = '11,435 ft (3,485 m)';
-
-              var div4 = document.getElementById('distToBaseCamp');
-              div4.innerHTML = '';
-              div4.innerHTML = 'You are here!';
-
-              var div5 = document.getElementById('info');
-              div5.innerHTML = '';
-              div5.innerHTML = 'Coordinates: (86.857, 28.006) Notes: This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
-            }
-
-            if (test[a][0] == 86.87348093822881 && test[a][1] == 27.99618320240794) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Khumbu Icefall");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '18,000 ft (5,486 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '10.5%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '11,035 (3,364 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '400 ft (106 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.873, 27.996)';
-            }
-
-            if (test[a][0] == 86.87624051444797 && test[a][1] == 27.98704598816326) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Camp 1");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '19,900 ft (6,065 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '9.7%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '9,135 ft (2,785 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '2,300 ft (685 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.876, 27.987)';
-            }
-
-            if (test[a][0] == 86.90335492493271 && test[a][1] == 27.980322036569067) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Camp 2");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '21,300 ft (6,500 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '9.4%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '7,735 ft (2,350 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '3,700 ft (1,120 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.903, 27.980)';
-            }
-
-            if (test[a][0] == 86.92478118334084 && test[a][1] == 27.967650460942664) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Camp 3");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '24,500 ft (7,470 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '8.7%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '4,535 ft (1,380 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '6,900 ft (2,090 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.925, 27.968)';
-            }
-
-            if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Camp 4");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '26,000 ft (7,925 m)';
-      
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '7.8%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '3,035 ft (925 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '8,400 ft (2,545 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.931, 27.974) WARNING: This location marks the start of the Deathzone, where oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
-            }
-
-            if (test[a][0] == 86.92582516958662 && test[a][1] == 27.985105632009432) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("South Summit");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '28,700 ft (8,748 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '7%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '335 ft (102 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '11,100 ft (3,368 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.926, 27.985)';
-            }
-
-            if (test[a][0] == 86.9250293824731 && test[a][1] == 27.98713299038748) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Hillary Step");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '28,840 ft (8,790 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '7%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = '195 ft (60 m)';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '11,240 ft (3,410 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.925, 27.987)';
-            }
-
-            if (test[a][0] == 86.92529072310032 && test[a][1] == 27.98803366188707) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Summit");
-
-                var div = document.getElementById('elevation');
-                div.innerHTML = '';
-                div.innerHTML = '29,035 ft (8,850 m)';
-
-                var div2 = document.getElementById('oxygen');
-                div2.innerHTML = '';
-                div2.innerHTML = '7%';
-                
-                var div3 = document.getElementById('distToSummit');
-                div3.innerHTML = '';
-                div3.innerHTML = 'You are here!';
-  
-                var div4 = document.getElementById('distToBaseCamp');
-                div4.innerHTML = '';
-                div4.innerHTML = '11,435 ft (3,485 m)';
-  
-                var div5 = document.getElementById('info');
-                div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.925, 27.988)';
-            }
-
-
-
-
-            //}
-
-            //else {
-              //console.log("else testing");
-              //div = document.getElementById('elevation');
-              //div.innerHTML = '';
-              //div.innerHTML = 'else test';
-            //}
-            
-            // create DOM element for the marker
-            var el = document.createElement('div');
-            el.id = 'marker';
-            console.log(route.features[0].geometry.coordinates[counter]);
-            // create the marker
-            new mapboxgl.Marker(el)
-              .setLngLat(test[a])
-              .setPopup(popup) // sets a popup on this marker
-              .addTo(map)
-              .togglePopup();
-          }
-        }
+        
         
         
         // Calculate the bearing to ensure the icon is rotated to match the route arc
@@ -408,11 +156,284 @@ var route = {
         
         // Request the next frame of animation so long the end has not been reached.
         if (counter < steps) {
-        requestAnimationFrame(animate);
-        }
+          for (a in test) {
+            if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
+              //console.log("test");
+              flag = true;
+              
+              
+           
+              if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
+  
+  
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Base Camp");
+  
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '17,600 ft (5,380 m)';
+  
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '11%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '11,435 ft (3,485 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = 'You are here!';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.857, 28.006) Notes: This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
+                //setTimeout(, 10000);
+              }
+  
+              if (test[a][0] == 86.87348093822881 && test[a][1] == 27.99618320240794) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Khumbu Icefall");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '18,000 ft (5,486 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '10.5%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '11,035 (3,364 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '400 ft (106 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.873, 27.996)';
+              }
+  
+              if (test[a][0] == 86.87624051444797 && test[a][1] == 27.98704598816326) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Camp 1");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '19,900 ft (6,065 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '9.7%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '9,135 ft (2,785 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '2,300 ft (685 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.876, 27.987)';
+              }
+  
+              if (test[a][0] == 86.90335492493271 && test[a][1] == 27.980322036569067) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Camp 2");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '21,300 ft (6,500 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '9.4%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '7,735 ft (2,350 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '3,700 ft (1,120 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.903, 27.980)';
+              }
+  
+              if (test[a][0] == 86.92478118334084 && test[a][1] == 27.967650460942664) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Camp 3");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '24,500 ft (7,470 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '8.7%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '4,535 ft (1,380 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '6,900 ft (2,090 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.925, 27.968)';
+              }
+  
+              if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Camp 4");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '26,000 ft (7,925 m)';
         
-        counter = counter + 1;
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '7.8%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '3,035 ft (925 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '8,400 ft (2,545 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.931, 27.974) WARNING: This location marks the start of the Deathzone, where oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+              }
+  
+              if (test[a][0] == 86.92582516958662 && test[a][1] == 27.985105632009432) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("South Summit");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '28,700 ft (8,748 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '7%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '335 ft (102 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '11,100 ft (3,368 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.926, 27.985)';
+              }
+  
+              if (test[a][0] == 86.9250293824731 && test[a][1] == 27.98713299038748) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Hillary Step");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '28,840 ft (8,790 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '7%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = '195 ft (60 m)';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '11,240 ft (3,410 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.925, 27.987)';
+              }
+  
+              if (test[a][0] == 86.92529072310032 && test[a][1] == 27.98803366188707) {
+                var popup = new mapboxgl.Popup({ offset: 0 })
+                  .setText("Summit");
+  
+                  var div = document.getElementById('elevation');
+                  div.innerHTML = '';
+                  div.innerHTML = '29,035 ft (8,850 m)';
+  
+                  var div2 = document.getElementById('oxygen');
+                  div2.innerHTML = '';
+                  div2.innerHTML = '7%';
+                  
+                  var div3 = document.getElementById('distToSummit');
+                  div3.innerHTML = '';
+                  div3.innerHTML = 'You are here!';
+    
+                  var div4 = document.getElementById('distToBaseCamp');
+                  div4.innerHTML = '';
+                  div4.innerHTML = '11,435 ft (3,485 m)';
+    
+                  var div5 = document.getElementById('info');
+                  div5.innerHTML = '';
+                  div5.innerHTML = 'Coordinates: (86.925, 27.988)';
+              }
+  
+  
+  
+  
+              //}
+  
+              //else {
+                //console.log("else testing");
+                //div = document.getElementById('elevation');
+                //div.innerHTML = '';
+                //div.innerHTML = 'else test';
+              //}
+              
+              // create DOM element for the marker
+              var el = document.createElement('div');
+              el.id = 'marker';
+              //console.log(route.features[0].geometry.coordinates[counter]);
+              // create the marker
+              new mapboxgl.Marker(el)
+                .setLngLat(test[a])
+                .setPopup(popup) // sets a popup on this marker
+                .addTo(map)
+                .togglePopup();
+
+              // if equals test point
+              
+              
+            }
+
+
+
+          }
+          if (flag) {
+            flag = false;
+            setTimeout(function(){requestAnimationFrame(animate)}, 2000);
+          } else {
+            requestAnimationFrame(animate);
+          }
+
+         
         }
+        counter = counter+1;
+        
+        } //animate end
         
         document.getElementById('replay').addEventListener('click', function() {
         // Set the coordinates of the original point back to origin
