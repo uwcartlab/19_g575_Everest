@@ -30,6 +30,8 @@ var route = {
   }
   }]
   };
+
+
   
   // A single point that animates along the route.
   // Coordinates are initially set to origin.
@@ -64,9 +66,6 @@ var route = {
   // Update the route with calculated arc coordinates
   route.features[0].geometry.coordinates = arc;
   
-  //Pause button to pause the animation
-  var pauseButton = document.getElementById('pause');
-
   // Used to increment the value of the point measurement against the route.
   var counter = 0;
     map.on('load', function () {
@@ -126,50 +125,266 @@ var route = {
         "icon-ignore-placement": true
         }
         });
-        
-        //Pause button event listener, from https://docs.mapbox.com/mapbox-gl-js/example/animate-a-line/
-        pauseButton.addEventListener('click', function() {
-          pauseButton.classList.toggle('pause');
-          if (pauseButton.classList.contains('pause')) {
-          cancelAnimationFrame(route);
-          } else {
-          resetTime = true;
-          animate();//Need to find proper functions and variables to assign
-          }
-          });
-
+         
         function animate() {
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
-        var test = [[86.85719586641274, 28.00647209182954], [86.8716322029027, 27.994135151807278], 
-        [86.90004164732451, 27.978094160888368], [86.92898406576529, 27.97894389655487], [86.92529072310032, 27.988033661887066]];
+        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92529072310032, 27.98803366188707]];
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
 
-        //console.log(point.features[0].geometry.coordinates)
+        console.log(point.features[0].geometry.coordinates);
         //console.log(point.features[0].geometry.coordinates[counter + 1])
 
         //console.log(point.features[0].geometry.coordinates);
-        if (route.coordinates = [ 86.857195866412738, 28.00647209182954, 50.0 ]){
-          //console.log("OK1")
-        }
-        else if (route.coordinates = [ 86.860000374915188, 28.006495926551409, 50.0 ]){
-          console.log("OK2")
-        }
-        else{console.log("OK3")};
         //console.log(test[0][1])
+        //var div;
+
         for (a in test) {
           if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
-            console.log("test");
+            //console.log("test");
             
             // *find how to insert newline
+            if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
             var popup = new mapboxgl.Popup({ offset: 0 })
-              .setText("Base Camp-                                                             Elevation: 17,600 ft (5,380 m); \n Oxygen Content: 11%; Distance to Summit: 11,435 ft (3,485 m)");
+              .setText("Base Camp");
+
+              var div = document.getElementById('elevation');
+              div.innerHTML = '';
+              div.innerHTML = '17,600 ft (5,380 m)';
+
+              var div2 = document.getElementById('oxygen');
+              div2.innerHTML = '';
+              div2.innerHTML = '11%';
+              
+              var div3 = document.getElementById('distToSummit');
+              div3.innerHTML = '';
+              div3.innerHTML = '11,435 ft (3,485 m)';
+
+              var div4 = document.getElementById('distToBaseCamp');
+              div4.innerHTML = '';
+              div4.innerHTML = 'You are here!';
+
+              var div5 = document.getElementById('info');
+              div5.innerHTML = '';
+              div5.innerHTML = 'Coordinates: (86.857, 28.006) Notes: This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
+            }
+
+            if (test[a][0] == 86.87348093822881 && test[a][1] == 27.99618320240794) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Khumbu Icefall");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '18,000 ft (5,486 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '10.5%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '11,035 (3,364 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '400 ft (106 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.873, 27.996)';
+            }
+
+            if (test[a][0] == 86.87624051444797 && test[a][1] == 27.98704598816326) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 1");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '19,900 ft (6,065 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '9.7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '9,135 ft (2,785 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '2,300 ft (685 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.876, 27.987)';
+            }
+
+            if (test[a][0] == 86.90335492493271 && test[a][1] == 27.980322036569067) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 2");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '21,300 ft (6,500 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '9.4%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '7,735 ft (2,350 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '3,700 ft (1,120 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.903, 27.980)';
+            }
+
+            if (test[a][0] == 86.92478118334084 && test[a][1] == 27.967650460942664) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 3");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '24,500 ft (7,470 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '8.7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '4,535 ft (1,380 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '6,900 ft (2,090 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.925, 27.968)';
+            }
+
+            if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 4");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '26,000 ft (7,925 m)';
+      
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '7.8%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '3,035 ft (925 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '8,400 ft (2,545 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.931, 27.974) WARNING: This location marks the start of the Deathzone, where oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+            }
+
+            if (test[a][0] == 86.92582516958662 && test[a][1] == 27.985105632009432) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("South Summit");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '28,700 ft (8,748 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '335 ft (102 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '11,100 ft (3,368 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.926, 27.985)';
+            }
+
+            if (test[a][0] == 86.9250293824731 && test[a][1] == 27.98713299038748) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Hillary Step");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '28,840 ft (8,790 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '195 ft (60 m)';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '11,240 ft (3,410 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.925, 27.987)';
+            }
+
+            if (test[a][0] == 86.92529072310032 && test[a][1] == 27.98803366188707) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Summit");
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '29,035 ft (8,850 m)';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = 'You are here!';
+  
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '11,435 ft (3,485 m)';
+  
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Coordinates: (86.925, 27.988)';
+            }
+
+
+
+
+            //}
+
+            //else {
+              //console.log("else testing");
+              //div = document.getElementById('elevation');
+              //div.innerHTML = '';
+              //div.innerHTML = 'else test';
+            //}
             
             // create DOM element for the marker
             var el = document.createElement('div');
             el.id = 'marker';
-            //console.log(route.features[0].geometry.coordinates[counter]);
-            console.log("Route:::" + route)
+            console.log(route.features[0].geometry.coordinates[counter]);
             // create the marker
             new mapboxgl.Marker(el)
               .setLngLat(test[a])
@@ -250,115 +465,19 @@ var route = {
 
 
 
-//ONLY Back button works, others don't change range slider.
-//Currently need range slider to console log, have to find way to create/store index outside of slider if we don't want it
+
 function createSequenceControls(map,attributes){
-$('#panel').append('<input class="range-slider" style="margin: 10px 10px 10px 10px;width: 93%;" type="range">');
+//$('#panel').append('<input class="range-slider" style="margin: 10px 10px 10px 10px;width: 93%;" type="range">');
 $('#panel').append('<div class="row" style="text-align: center;"><div class="col-4"><button class="skip btn-sm btn" id="reverse"><i class="fas fa-backward"></i></button></div> <div class="col-4"><button class="skip btn-sm btn" id="play"><i class="fas fa-play"></i></button></div> <div class="col-4"><button class="skip btn-sm btn" id="forward"><i class="fas fa-forward"></i></button></div></div>');
 
-    $('.skip').click(function(){
-      var index = $('.range-slider').val();
-
-      //Step 6: increment or decrement depending on button clicked
-      if ($(this).attr('id') == 'forward'){
-          index++;
-          //Step 7: if past the last attribute, wrap around to first attribute
-          index = index > 8 ? 0 : index;
-      } else if ($(this).attr('id') == 'reverse'){
-          index--;
-          //Step 7: if past the first attribute, wrap around to last attribute
-          index = index < 0 ? 8 : index;
-          $(".range-slider").val(index);
-          console.log(index);
-          
-          if (index==0){$("a1").replaceWith("Base Camp"), 
-          $("p1").replaceWith("17,600 ft (5,380 m)"),
-          $("p2").replaceWith("11% (Sea Level: 21%)")
-          $("p3").replaceWith("11,435 ft (3,485 m)")
-          $("p4").replaceWith("You are here!")
-          $("p5").replaceWith("The starting point of your ascent, make sure you’ve spent enough time acclimatizing before beginning your ascent.")
-          }
-
-          if (index==1){$("a1").replaceWith("Khumbu Icefall"), 
-          $("p1").replaceWith("18,000 ft (5,486 m)"),
-          $("p2").replaceWith("10.5%")
-          $("p3").replaceWith("11,035 (3,364 m)")
-          $("p4").replaceWith("400 ft (106 m)")
-          $("p5").replaceWith("Be careful here, this is one of the most dangerous sections of the ascent as you cross deep ravines of ice.")
-          }
-
-          if (index==2){$("a1").replaceWith("Camp 1"), 
-          $("p1").replaceWith("19,900 ft (6,065 m)"),
-          $("p2").replaceWith("9.7%")
-          $("p3").replaceWith("9135 ft (2,785 m)")
-          $("p4").replaceWith("2300 ft (685 m)")
-          $("p5").replaceWith("")
-          }
-
-          if (index==3){$("a1").replaceWith("Camp 2"), 
-          $("p1").replaceWith("21,300 ft (6,500 m)"),
-          $("p2").replaceWith("9.4%")
-          $("p3").replaceWith("7,735 ft (2,350 m)")
-          $("p4").replaceWith("3,700 ft (1,120 m)")
-          $("p5").replaceWith("")
-          }
-
-          if (index==4){$("a1").replaceWith("Camp 3"), 
-          $("p1").replaceWith("24,500 ft (7,470 m)"),
-          $("p2").replaceWith("8.7%")
-          $("p3").replaceWith("4,535 ft (1,380 m)")
-          $("p4").replaceWith("6,900 ft (2,090 m)")
-          $("p5").replaceWith("")
-          }
-          
-          if (index==5){$("a1").replaceWith("Camp 4-"), 
-          $("p1").replaceWith("26,000 ft (7,925 m)"),
-          $("p2").replaceWith("7.8%")
-          $("p3").replaceWith("3,035 ft (925 m)")
-          $("p4").replaceWith("8,400 ft (2,545 m)")
-          $("p5").replaceWith("WARNING- This location marks the start of the Deathzone, where oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.")
-          }
-
-          if (index==6){$("a1").replaceWith("South Summit"), 
-          $("p1").replaceWith("28,700 ft (8,748 m)"),
-          $("p2").replaceWith("7%")
-          $("p3").replaceWith("335 ft (102 m)")
-          $("p4").replaceWith("11,100 ft (3,368 m)")
-          $("p5").replaceWith("")
-          }
-          /*
-          if (index==7){$("a1").replaceWith("Hillary Step"), 
-          $("p1").replaceWith("28,840 ft (8,790 m)"),
-          $("p2").replaceWith("7%")
-          $("p3").replaceWith("195 ft (60 m)")
-          $("p4").replaceWith("11,240 ft (3,410 m)")
-          $("p5").replaceWith("The last obstacle to overcome, this location was damaged by the 2015 earthquake that devestated Nepal.")
-          }
-        */
-          if (index==8){$("a1").replaceWith("Summit"), 
-          $("p1").replaceWith("29,035 ft (8,850 m)"),
-          $("p2").replaceWith("6.9%"),
-          $("p3").replaceWith("You are here!"),
-          $("p4").replaceWith("11,435 ft (3485 m)"),
-          $("p5").replaceWith("Congratulations, you made it! Take a moment to look around, and make sure you make it back to base camp safely.")
-          };
-          if (index==7){$("a1").empty()};
-        
-          //if (index==1){$("a1").empty()};
-      };
-    });
     //set slider attributes
     $('.range-slider').attr({
-        max: 8,
+        max: 6,
         min: 0,
         value: 0,
         step: 1
     });
 
-    $('.range-slider').on('input', function(){
-      //Step 6: get the new index value
-      var index = $(this).val(index);
-    });
 
    
 };
@@ -370,7 +489,7 @@ $("#buttonweather").click(function(){
 //$(document).ready(); // calling create map function on document ready
 
 $(document).ready(function(){        
-    //$('#welcomeWindow').modal('show');
+    $('#welcomeWindow').modal('show');
     createMap();
     createSequenceControls();
    }); 
@@ -383,100 +502,3 @@ console.log(localStorage.getItem("hasCodeRunBefore"));
 
     createMap();
 }*/
-
-//Here's all the info for the points we're adding, so we can append it to the information panel
-/*
-Base Camp-
-Elevation: 17,600 ft (5,380 m)
-Oxygen Content: 11% (Sea Level: 21%)
-Distance to Summit: 11,435 ft (3,485 m)
-Distance to Base Camp: 0 ft (0 m) OR You are here!
-Notes: The starting point of your ascent, make sure you’ve spent enough time acclimatizing before beginning your ascent.
-(28°0′26″N 86°51′34″E)
-
-https://en.wikipedia.org/wiki/Mount_Everest#/media/File:Kathmandu_,_Nepal_,_Himalayas_,Everest_2.jpg
-
-Khumbu Icefall-
-Elevation: 18,000 ft (5,486 m)
-Oxygen Content: 10.5%
-Distance to Summit: 11,035 (3,364 m)
-Distance to Base Camp: 400 ft (106 m)
-(27°59'46.6"N 86°52'22.9"E)
-27.996278, 86.873028
-
-https://en.wikipedia.org/wiki/Khumbu_Icefall#/media/File:KhumbuIcefall.jpg
-
-Camp 1-
-19,900 ft (6,065 m)
-9.7%
-9135 ft (2,785 m)
-2300 ft (685 m)
-(27°59'14.9"N 86°52'34.4"E)
-27.987472, 86.876222
-https://iantaylortrekking.com/wp-content/uploads/2015/03/Everest%20Camp%202%204.jpg
-
-Camp 2-
-21,300 ft (6,500 m)
-9.4%
-7,735 ft (2,350 m)
-3,700 ft (1,120 m)
-27°58'48.9"N 86°54'11.9"E
-27.980235, 86.903305
-https://iantaylortrekking.com/wp-content/uploads/2015/03/Everest%20Camp%202%205.jpg
-
-Camp 3-
-24,500 ft (7,470 m)
-8.7%
-4,535 ft (1,380 m)
-6,900 ft (2,090 m)
-27°58'03.9"N 86°55'30.5"E
-27.967759, 86.925148
-https://static1.squarespace.com/static/586197f36b8f5b1c08e1ac0a/58797dcc1e5b6cf13b75419d/58797dcebf629abac082943d/1484357459700/Camp+3+Via+acetravels.com.JPG
-
-
-Camp 4-
-26,000 ft (7,925 m)
-7.8%
-3,035 ft (925 m)
-8,400 ft (2,545 m)
-WARNING- This location marks the start of the Deathzone, where oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.
-(27°58'25.0"N 86°55'47.9"E)
-27.973621, 86.929977
-https://en.wikipedia.org/wiki/South_Summit_(Mount_Everest)#/media/File:Summit_camp_Everest.jpg
-
-South Summit-
-28,700 ft (8,748 m) 
-7%
-335 ft (102 m)
-11,100 ft (3,368 m)
-27°59′6″N 86°55′33″E
-27.985, 86.925833
-
-https://en.wikipedia.org/wiki/South_Summit_(Mount_Everest)#/media/File:Mount_Everest_from_Kala_Patther.jpg
-
-
-Hillary Step-
-28,840 ft (8,790 m)
-7%
-195 ft (60 m)
-11,240 ft (3,410 m)
-27°59'13.3"N 86°55'30.7"E
-27.987037, 86.925203
-https://en.wikipedia.org/wiki/Hillary_Step#/media/File:Hillary_Step_near_Everest_Topcropped1.png
-
-https://www.google.com/maps/place/Hillary+Step/@27.9870254,86.9251977,3a,132.6y,90t/data=!3m8!1e2!3m6!1shttp:%2F%2Fbstxinc.sakura.ne.jp%2Fwp2%2Fwp-content%2Fuploads%2F2015%2F09%2F00eve07.jpg!2e7!3e27!6s%2F%2Flh6.googleusercontent.com%2Fproxy%2F8TQQSvFBms0QvuFQhx-Xeu8kGkB6Cu4hp7ppT5vMWVJ9YKwLrGC_oqqmj-JrWBIKHu0L5rYxmzGOWJC6h7slcdBXpuCC4RMc-REK5JK5cFhCf4lCU32wBvXDqS1s6_2DAo4fRNGyXywhlfJewE6nzXZ8iCjXKw%3Dw203-h156-k-no!7i400!8i307!4m5!3m4!1s0x39e8549fb4c02fe5:0x203e089fe5bb1137!8m2!3d27.9870255!4d86.9251974?hl=en
-
-Summit-
-29,035 ft (8,850 m)
-7%
-0 ft (0 m)
-11,435 ft (3485 m)
-27°59'17.3"N 86°55'29.9"E
-27.988137, 86.924971
-https://en.wikipedia.org/wiki/Mount_Everest#/media/File:EverestfromKalarPatarcrop.JPG
-Or
-https://en.wikipedia.org/wiki/Mount_Everest#/media/File:Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg
-Or
-https://en.wikipedia.org/wiki/Mount_Everest#/media/File:Amanecer_desde_la_cima_del_Everest_por_Carlos_Pauner.JPG
-
-*/
