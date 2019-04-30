@@ -28,7 +28,7 @@
          <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                <div class="sidebar-brand">
-                  <a1 href="#">Information</a1>
+                  <a href="#">Information</a>
                   <div id="close-sidebar">
                      <i class="fas fa-times"></i>
                   </div>
@@ -50,35 +50,35 @@
                         <i class="fa fa-mountain"></i>
                         <span>Elevation</span>
                         </a>
-                        <p1>Test1</p1>
+                        <p id="elevation">Test1</p>
                      </li>
                      <li class="">
                         <a href="#">
                            <i class="fas fa-percent"></i>
                         <span>Oxygen Level</span>
                         </a>
-                        <p2>Test2</p2>
+                        <p id="oxygen">Test2</p>
                      </li>
                      <li class="">
                         <a href="#">
                             <i class="fas fa-hiking"></i>
                             <span>Distance to Summit</span>
                         </a>
-                        <p3>Test3</p3> 
+                        <p id="distToSummit">Test3</p> 
                      </li>
                      <li class="">
                         <a href="#">
                             <i class="fas fa-hiking fa-flip-horizontal"></i>
                             <span>Distance to Base Camp</span>
                         </a>
-                        <p4>Test4</p4> 
+                        <p id="distToBaseCamp">Test4</p> 
                      </li>
                     <li class="">
                         <a href="#">
                         <i class="fas fa-clipboard"></i>
                         <span>Additional Information</span>
                         </a>
-                        <p5>Test5</p5>
+                        <p id="info">Test5</p>
                     </li>
                   </ul>
                </div>
@@ -87,7 +87,7 @@
             <!-- sidebar-content  -->
          </nav>
          <main class="page-content">
-            <button id='pause'></button>
+
             <button id="buttonweather"  type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Everest Weather"><i class="fas fa-cloud-sun"></i></button>
             <div class='overlay'>
                <button id='replay'>Replay</button>
@@ -112,9 +112,9 @@
               <div class="modal-content" id="welcome">
                 <div class="modal-header">
                   <h5 class="modal-title" id="test">Sitting on Top of the World</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                  </button>
+                  </button>-->
                 </div>
                 <div class="modal-body">
                   <p>Welcome to Everest! With an elevation of 29,035 feet (8,850 meters), it is the highest mountain on Earth, and a very attractive peak to climbers the world over, such as yourself. 
