@@ -154,7 +154,7 @@ var route = {
 
               var div2 = document.getElementById('oxygen');
               div2.innerHTML = '';
-              div2.innerHTML = '11%';
+              div2.innerHTML = '11% (21% at Sea Level)';
               
               var div3 = document.getElementById('distToSummit');
               div3.innerHTML = '';
@@ -166,7 +166,11 @@ var route = {
 
               var div5 = document.getElementById('info');
               div5.innerHTML = '';
-              div5.innerHTML = 'Coordinates: (86.857, 28.006) Notes: This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
+              div5.innerHTML = 'This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
+              
+              var div6 = document.getElementById('Location');
+              div6.innerHTML = '';
+              div6.innerHTML = 'Base Camp';
             }
 
             if (test[a][0] == 86.87348093822881 && test[a][1] == 27.99618320240794) {
@@ -191,7 +195,11 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.873, 27.996)';
+                div5.innerHTML = 'Take care in this area, the ice and crevasses can be dangerous to cross.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Khumbu Icefall';
             }
 
             if (test[a][0] == 86.87624051444797 && test[a][1] == 27.98704598816326) {
@@ -216,7 +224,11 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.876, 27.987)';
+                div5.innerHTML = 'You made it past the icefall, take a break here and recover for the rest of the ascent';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 1';
             }
 
             if (test[a][0] == 86.90335492493271 && test[a][1] == 27.980322036569067) {
@@ -241,7 +253,11 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.903, 27.980)';
+                div5.innerHTML = 'Grab some tea, there'+"'s"+' still a fair bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 2';
             }
 
             if (test[a][0] == 86.92478118334084 && test[a][1] == 27.967650460942664) {
@@ -266,7 +282,11 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.925, 27.968)';
+                div5.innerHTML = 'Get ready for more climbing, the Geneva Spur and Yellow Band are coming up, and then one of the great passive challenges of Everest.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 3';
             }
 
             if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
@@ -275,7 +295,7 @@ var route = {
 
                 var div = document.getElementById('elevation');
                 div.innerHTML = '';
-                div.innerHTML = '26,000 ft (7,925 m)';
+                div.innerHTML = '<span style="color: rgb(201, 34, 34)">26,000 ft (7,925 m)</span>';
       
                 var div2 = document.getElementById('oxygen');
                 div2.innerHTML = '';
@@ -291,16 +311,20 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.931, 27.974) WARNING: This location marks the start of the Deathzone, where oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
-            }
+                div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. Oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 4';
+              }
 
             if (test[a][0] == 86.92582516958662 && test[a][1] == 27.985105632009432) {
               var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("South Summit");
+                //.setText("South Summit");
 
                 var div = document.getElementById('elevation');
                 div.innerHTML = '';
-                div.innerHTML = '28,700 ft (8,748 m)';
+                div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
 
                 var div2 = document.getElementById('oxygen');
                 div2.innerHTML = '';
@@ -316,16 +340,20 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.926, 27.985)';
+                div5.innerHTML = 'A sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'South Summit';
             }
 
             if (test[a][0] == 86.9250293824731 && test[a][1] == 27.98713299038748) {
               var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Hillary Step");
+                //.setText("Hillary Step");
 
                 var div = document.getElementById('elevation');
                 div.innerHTML = '';
-                div.innerHTML = '28,840 ft (8,790 m)';
+                div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,840 ft (8,790 m)</span>';
 
                 var div2 = document.getElementById('oxygen');
                 div2.innerHTML = '';
@@ -341,16 +369,20 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.925, 27.987)';
+                div5.innerHTML = 'Named in honor of Sir Edmund Hillary and Tenzing Norgay, this is the most difficult portion of the climb. It was affected by the 2015 Nepal earthquake, but still remains the last major challenge before the summit.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Hillary Step';
             }
 
             if (test[a][0] == 86.92529072310032 && test[a][1] == 27.98803366188707) {
-              var popup = new mapboxgl.Popup({ offset: 0 })
-                .setText("Summit");
+              /*var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Summit");*/
 
                 var div = document.getElementById('elevation');
                 div.innerHTML = '';
-                div.innerHTML = '29,035 ft (8,850 m)';
+                div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">29,035 ft (8,850 m)</span>';
 
                 var div2 = document.getElementById('oxygen');
                 div2.innerHTML = '';
@@ -366,7 +398,11 @@ var route = {
   
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Coordinates: (86.925, 27.988)';
+                div5.innerHTML = 'Congratulations, you made it! Take a moment to look around and savor your accomplishment, but don'+"'t"+' tarry too long- you still have to make it back down safely.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Summit';
             }
 
 
@@ -380,7 +416,7 @@ var route = {
               //div.innerHTML = '';
               //div.innerHTML = 'else test';
             //}
-            
+
             // create DOM element for the marker
             var el = document.createElement('div');
             el.id = 'marker';

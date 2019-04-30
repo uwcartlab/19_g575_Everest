@@ -173,7 +173,7 @@ html, body, #container {
   /*----------------show sidebar button----------------*/
   #show-sidebar {
     position: fixed;
-    right: 10px;
+    right: 25px;
     top: 10px;
     border-radius: 50%;
     width: 35px;
@@ -271,19 +271,29 @@ html, body, #container {
     display: inline-block;
   }
   
+  .sidebar-wrapper .sidebar-menu .header-menu ul li span {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 10px 8px 20px;
+    color: rgb(255, 255, 255);
+  }
+
   .sidebar-wrapper .sidebar-menu ul li a {
     display: inline-block;
     width: 100%;
     text-decoration: none;
     position: relative;
     padding: 8px 10px 8px 20px;
+    color: rgb(255, 255, 255);
   }
   
   .sidebar-wrapper .sidebar-menu ul li p {
     display: inline-block;
     width: 100%;
     text-decoration: none;
-    color:#fff;
+    color:rgb(255, 255, 255);
     position: relative;
     padding: 8px 10px 8px 20px;
   }
@@ -476,7 +486,7 @@ html, body, #container {
   }
   
   .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
-      color: #6c7b88;
+      color: #fff;
   }
   
   .chiller-theme .sidebar-footer {
@@ -551,6 +561,12 @@ html, body, #container {
       bottom: 5%;
       left:0.5%;
 
+    }
+
+    #replay{
+      z-index: 10;
+      position: absolute;
+      top: 40px;
     }
 
     /*----- welcome window------*/
