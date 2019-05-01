@@ -15,7 +15,7 @@ function createMap(){
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nishidilipsontakke/cjuhnd62s559x1fqmt6kccmfe',
-      center: [86.91, 27.987],
+      center: [86.901, 27.988],
       zoom: 13,
       maxBounds: bounds
     });
@@ -59,8 +59,8 @@ var route = {
   
   // Draw an arc between the `origin` & `destination` of the two points
   for (var i = 0; i < lineDistance; i += lineDistance / steps) {
-  var segment = turf.along(route.features[0], i, 'kilometers');
-  arc.push(segment.geometry.coordinates);
+    var segment = turf.along(route.features[0], i, 'kilometers');
+    arc.push(segment.geometry.coordinates);
   }
   
   // Update the route with calculated arc coordinates
@@ -127,8 +127,16 @@ var route = {
         });
          
         var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92529072310032, 27.98803366188707]];
-        var flag = false; // detect wether popup triggers
+        var flag = false; // detect whether popup triggers
+
+        var flagRestart = false; // replay button
+
         function animate() {
+          if (counter==0){;
+            flagRestart = false;
+          }
+
+
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
@@ -158,10 +166,7 @@ var route = {
         if (counter < steps) {
           for (a in test) {
             if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
-              //console.log("test");
               flag = true;
-              
-              
            
               if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
                 var popup = new mapboxgl.Popup({ offset: 0 })
@@ -457,30 +462,30 @@ var route = {
           }
           if (flag) {
             flag = false;
-            setTimeout(function(){requestAnimationFrame(animate)}, 2000);
+            if (!flagRestart){
+              console.log("test9");
+              setTimeout(function(){requestAnimationFrame(animate)}, 2000);
+            };
+            
           } else {
-            //requestAnimationFrame(animate);
-            setTimeout(function(){requestAnimationFrame(animate)}, 100);
+            if (!flagRestart){
+              //console.log("test");
+              setTimeout(function(){requestAnimationFrame(animate)}, 100);
+            };
+            //setTimeout(function(){requestAnimationFrame(animate)}, 100);
           }
 
          
         }
         counter = counter+1;
         
-        } //animate end
-        
+        } //animate end  
         document.getElementById('replay').addEventListener('click', function() {
-        // Set the coordinates of the original point back to origin
-        point.features[0].geometry.coordinates = origin;
         
-        // Update the source layer
-        map.getSource('point').setData(point);
-        
-        // Reset the counter
-        counter = 0;
-        
-        // Restart the animation.
-        animate(counter);
+          // Reset the counter
+          counter = 0;
+          
+
         });
         
         // Start the animation.
