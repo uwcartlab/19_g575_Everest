@@ -553,6 +553,11 @@ html, body, #container {
 
     }
 
+    #replay{
+      z-index: 80;
+      position: absolute;
+      top: 40px;
+    }
     /*----- welcome window------*/
     #welcome{
       background-color: #563d7c;
