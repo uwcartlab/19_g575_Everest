@@ -15,7 +15,7 @@ function createMap(){
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/nishidilipsontakke/cjuhnd62s559x1fqmt6kccmfe',
-      center: [86.9, 27.988],
+      center: [86.901, 27.988],
       zoom: 13,
       maxBounds: bounds
     });
