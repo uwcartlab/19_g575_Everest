@@ -22,13 +22,13 @@ function createMap(){
 
     map.on("load", function() {
       /* Image: An image is loaded and added to the map. */
-      map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+      map.loadImage("images/camp.png", function(error, image) {
         
       if (error) throw error;
       map.addImage("custom-marker", image);
       /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
       map.addLayer({
-      id: "marker",
+      id: "baseCamp",
       type: "symbol",
       /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
       source: {
@@ -52,7 +52,7 @@ function createMap(){
       }
       });
       map.addLayer({
-        id: "marker2",
+        id: "camp1",
         type: "symbol",
         /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
         source: {
@@ -65,7 +65,7 @@ function createMap(){
         properties: {},
         geometry: {
         type: "Point",
-        coordinates: [86.87348093822881, 27.99618320240794]
+        coordinates: [86.87624051444797, 27.98704598816326]
         }
         }
         ]
@@ -76,7 +76,7 @@ function createMap(){
         }
         });
         map.addLayer({
-          id: "marker3",
+          id: "camp2",
           type: "symbol",
           /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
           source: {
@@ -89,7 +89,7 @@ function createMap(){
           properties: {},
           geometry: {
           type: "Point",
-          coordinates: [86.87624051444797, 27.98704598816326]
+          coordinates: [86.90335492493271, 27.980322036569067]
           }
           }
           ]
@@ -100,7 +100,7 @@ function createMap(){
           }
           });
           map.addLayer({
-            id: "marker4",
+            id: "camp3",
             type: "symbol",
             /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
             source: {
@@ -113,7 +113,7 @@ function createMap(){
             properties: {},
             geometry: {
             type: "Point",
-            coordinates: [86.90335492493271, 27.980322036569067]
+            coordinates: [86.92478118334084, 27.967650460942664]
             }
             }
             ]
@@ -124,7 +124,7 @@ function createMap(){
             }
             });
             map.addLayer({
-              id: "marker5",
+              id: "camp4",
               type: "symbol",
               /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
               source: {
@@ -137,7 +137,7 @@ function createMap(){
               properties: {},
               geometry: {
               type: "Point",
-              coordinates: [86.92478118334084, 27.967650460942664]
+              coordinates: [86.93082159811098, 27.973526561469413]
               }
               }
               ]
@@ -147,109 +147,120 @@ function createMap(){
               "icon-image": "custom-marker",
               }
               });
-              map.addLayer({
-                id: "marker6",
-                type: "symbol",
-                /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-                source: {
-                type: "geojson",
-                data: {
-                type: 'FeatureCollection',
-                features: [
-                {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                type: "Point",
-                coordinates: [86.93082159811098, 27.973526561469413]
-                }
-                }
-                ]
-                }
-                },
-                layout: {
-                "icon-image": "custom-marker",
-                }
-                });
-                map.addLayer({
-                  id: "marker7",
-                  type: "symbol",
-                  /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-                  source: {
-                  type: "geojson",
-                  data: {
-                  type: 'FeatureCollection',
-                  features: [
-                  {
-                  type: 'Feature',
-                  properties: {},
-                  geometry: {
-                  type: "Point",
-                  coordinates: [86.92582516958662, 27.985105632009432]
-                  }
-                  }
-                  ]
-                  }
-                  },
-                  layout: {
-                  "icon-image": "custom-marker",
-                  }
-                  });
+    });
+      map.loadImage("images/pointmarker.png", function(error, image) {
+        
+        if (error) throw error;
+        map.addImage("custom-marker1", image);
+        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+        map.addLayer({
+          id: "khumbuIcefall",
+          type: "symbol",
+          /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+          source: {
+          type: "geojson",
+          data: {
+          type: 'FeatureCollection',
+          features: [
+          {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+          type: "Point",
+          coordinates: [86.87348093822881, 27.99618320240794]
+          }
+          }
+          ]
+          }
+          },
+          layout: {
+          "icon-image": "custom-marker1",
+          }
+          });
+          map.addLayer({
+            id: "southSummit",
+            type: "symbol",
+            /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+            source: {
+            type: "geojson",
+            data: {
+            type: 'FeatureCollection',
+            features: [
+            {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+            type: "Point",
+            coordinates: [86.92582516958662, 27.985105632009432]
+            }
+            }
+            ]
+            }
+            },
+            layout: {
+            "icon-image": "custom-marker1",
+            }
+            });
 
-                  map.addLayer({
-                    id: "marker8",
-                    type: "symbol",
-                    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-                    source: {
-                    type: "geojson",
-                    data: {
-                    type: 'FeatureCollection',
-                    features: [
-                    {
-                    type: 'Feature',
-                    properties: {},
-                    geometry: {
-                    type: "Point",
-                    coordinates: [86.9250293824731, 27.98713299038748]
-                    }
-                    }
-                    ]
-                    }
-                    },
-                    layout: {
-                    "icon-image": "custom-marker",
-                    }
-                    });
-                    map.addLayer({
-                      id: "marker9",
-                      type: "symbol",
-                      /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-                      source: {
-                      type: "geojson",
-                      data: {
-                      type: 'FeatureCollection',
-                      features: [
-                      {
-                      type: 'Feature',
-                      properties: {},
-                      geometry: {
-                      type: "Point",
-                      coordinates: [86.92529072310032, 27.98803366188707]
-                      }
-                      }
-                      ]
-                      }
-                      },
-                      layout: {
-                      "icon-image": "custom-marker",
-                      }
-                      });
-      });
-      });
-
+            map.addLayer({
+              id: "hillaryStep",
+              type: "symbol",
+              /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+              source: {
+              type: "geojson",
+              data: {
+              type: 'FeatureCollection',
+              features: [
+              {
+              type: 'Feature',
+              properties: {},
+              geometry: {
+              type: "Point",
+              coordinates: [86.9250293824731, 27.98713299038748]
+              }
+              }
+              ]
+              }
+              },
+              layout: {
+              "icon-image": "custom-marker1",
+              }
+              });
+});
+map.loadImage("images/success.png", function(error, image) {
+        
+  if (error) throw error;
+  map.addImage("custom-marker2", image);
+  /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+  map.addLayer({
+    id: "summit",
+    type: "symbol",
+    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+    source: {
+    type: "geojson",
+    data: {
+    type: 'FeatureCollection',
+    features: [
+    {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+    type: "Point",
+    coordinates: [86.92529072310032, 27.98803366188707]
+    }
+    }
+    ]
+    }
+    },
+    layout: {
+    "icon-image": "custom-marker2",
+    }
+    });
+});
+});
 // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker', function (e) {
+map.on('click', 'baseCamp', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -294,14 +305,14 @@ map.on('click', 'marker', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.85719586641274, 28.00647209182954])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
   // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker2', function (e) {
+map.on('click', 'khumbuIcefall', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -346,14 +357,14 @@ map.on('click', 'marker2', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.87348093822881, 27.99618320240794])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
     // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker3', function (e) {
+map.on('click', 'camp1', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -398,14 +409,14 @@ map.on('click', 'marker3', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.87624051444797, 27.98704598816326])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
     // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker4', function (e) {
+map.on('click', 'camp2', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -450,14 +461,14 @@ map.on('click', 'marker4', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.90335492493271, 27.980322036569067])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
       // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker5', function (e) {
+map.on('click', 'camp3', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -502,14 +513,14 @@ map.on('click', 'marker5', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.92478118334084, 27.967650460942664])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
         // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker6', function (e) {
+map.on('click', 'camp4', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -554,14 +565,14 @@ map.on('click', 'marker6', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.93082159811098, 27.973526561469413])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
           // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker7', function (e) {
+map.on('click', 'southSummit', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -606,14 +617,14 @@ map.on('click', 'marker7', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.92582516958662, 27.985105632009432])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
             // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker8', function (e) {
+map.on('click', 'hillaryStep', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -658,14 +669,14 @@ map.on('click', 'marker8', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.9250293824731, 27.98713299038748])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
 
               // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
-map.on('click', 'marker9', function (e) {
+map.on('click', 'summit', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
   var description = e.features[0].properties.description;
    
@@ -710,90 +721,90 @@ map.on('click', 'marker9', function (e) {
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.92529072310032, 27.98803366188707])
-    .setPopup(popup) // sets a popup on this marker
+    //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
-    .togglePopup();
+    //.togglePopup();
   });
    
 
   // Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker', function () {
+  map.on('mouseenter', 'baseCamp', function () {
   map.getCanvas().style.cursor = 'pointer';
   });  
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker', function () {
+  map.on('mouseleave', 'baseCamp', function () {
   map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker2', function () {
+  map.on('mouseenter', 'khumbuIcefall', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker2', function () {
+  map.on('mouseleave', 'khumbuIcefall', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker3', function () {
+  map.on('mouseenter', 'camp1', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker3', function () {
+  map.on('mouseleave', 'camp1', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker4', function () {
+  map.on('mouseenter', 'camp2', function () {
     map.getCanvas().style.cursor = 'pointer';
   }); 
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker4', function () {
+  map.on('mouseleave', 'camp2', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker5', function () {
+  map.on('mouseenter', 'camp3', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker5', function () {
+  map.on('mouseleave', 'camp3', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker6', function () {
+  map.on('mouseenter', 'camp4', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker6', function () {
+  map.on('mouseleave', 'camp4', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker7', function () {
+  map.on('mouseenter', 'southSummit', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker7', function () {
+  map.on('mouseleave', 'southSummit', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker8', function () {
+  map.on('mouseenter', 'hillaryStep', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker8', function () {
+  map.on('mouseleave', 'hillaryStep', function () {
     map.getCanvas().style.cursor = '';
   });
 
   //Change the cursor to a pointer when the mouse is over the places layer.
-  map.on('mouseenter', 'marker9', function () {
+  map.on('mouseenter', 'summit', function () {
     map.getCanvas().style.cursor = 'pointer';
   });
   // Change it back to a pointer when it leaves.
-  map.on('mouseleave', 'marker9', function () {
+  map.on('mouseleave', 'summit', function () {
     map.getCanvas().style.cursor = '';
   });
 
@@ -1252,9 +1263,9 @@ var route = {
               // create the marker
               new mapboxgl.Marker(el)
                 .setLngLat(test[a])
-                .setPopup(popup) // sets a popup on this marker
+                //.setPopup(popup) // sets a popup on this marker
                 .addTo(map)
-                .togglePopup();
+                //.togglePopup();
 
               // if equals test point
               
