@@ -19,6 +19,232 @@ function createMap(){
       zoom: 13,
       maxBounds: bounds
     });
+
+    map.on("load", function () {
+      /* Image: An image is loaded and added to the map. */
+      map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+      if (error) throw error;
+      map.addImage("custom-marker", image);
+      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+      map.addLayer({
+      id: "marker",
+      type: "symbol",
+      /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+      source: {
+      type: "geojson",
+      data: {
+      type: 'FeatureCollection',
+      features: [
+      {
+      type: 'Feature',
+      properties: {},
+      geometry: {
+      type: "Point",
+      coordinates: [86.85719586641274, 28.00647209182954]
+      }
+      }
+      ]
+      }
+      },
+      layout: {
+      "icon-image": "custom-marker",
+      }
+      });
+      map.addLayer({
+        id: "marker2",
+        type: "symbol",
+        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+        source: {
+        type: "geojson",
+        data: {
+        type: 'FeatureCollection',
+        features: [
+        {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+        type: "Point",
+        coordinates: [86.87348093822881, 27.99618320240794]
+        }
+        }
+        ]
+        }
+        },
+        layout: {
+        "icon-image": "custom-marker",
+        }
+        });
+        map.addLayer({
+          id: "marker3",
+          type: "symbol",
+          /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+          source: {
+          type: "geojson",
+          data: {
+          type: 'FeatureCollection',
+          features: [
+          {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+          type: "Point",
+          coordinates: [86.87624051444797, 27.98704598816326]
+          }
+          }
+          ]
+          }
+          },
+          layout: {
+          "icon-image": "custom-marker",
+          }
+          });
+          map.addLayer({
+            id: "marker4",
+            type: "symbol",
+            /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+            source: {
+            type: "geojson",
+            data: {
+            type: 'FeatureCollection',
+            features: [
+            {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+            type: "Point",
+            coordinates: [86.90335492493271, 27.980322036569067]
+            }
+            }
+            ]
+            }
+            },
+            layout: {
+            "icon-image": "custom-marker",
+            }
+            });
+            map.addLayer({
+              id: "marker5",
+              type: "symbol",
+              /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+              source: {
+              type: "geojson",
+              data: {
+              type: 'FeatureCollection',
+              features: [
+              {
+              type: 'Feature',
+              properties: {},
+              geometry: {
+              type: "Point",
+              coordinates: [86.92478118334084, 27.967650460942664]
+              }
+              }
+              ]
+              }
+              },
+              layout: {
+              "icon-image": "custom-marker",
+              }
+              });
+              map.addLayer({
+                id: "marker6",
+                type: "symbol",
+                /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+                source: {
+                type: "geojson",
+                data: {
+                type: 'FeatureCollection',
+                features: [
+                {
+                type: 'Feature',
+                properties: {},
+                geometry: {
+                type: "Point",
+                coordinates: [86.93082159811098, 27.973526561469413]
+                }
+                }
+                ]
+                }
+                },
+                layout: {
+                "icon-image": "custom-marker",
+                }
+                });
+                map.addLayer({
+                  id: "marker7",
+                  type: "symbol",
+                  /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+                  source: {
+                  type: "geojson",
+                  data: {
+                  type: 'FeatureCollection',
+                  features: [
+                  {
+                  type: 'Feature',
+                  properties: {},
+                  geometry: {
+                  type: "Point",
+                  coordinates: [86.92582516958662, 27.985105632009432]
+                  }
+                  }
+                  ]
+                  }
+                  },
+                  layout: {
+                  "icon-image": "custom-marker",
+                  }
+                  });
+
+                  map.addLayer({
+                    id: "marker8",
+                    type: "symbol",
+                    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+                    source: {
+                    type: "geojson",
+                    data: {
+                    type: 'FeatureCollection',
+                    features: [
+                    {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: {
+                    type: "Point",
+                    coordinates: [86.9250293824731, 27.98713299038748]
+                    }
+                    }
+                    ]
+                    }
+                    },
+                    layout: {
+                    "icon-image": "custom-marker",
+                    }
+                    });
+                    map.addLayer({
+                      id: "marker9",
+                      type: "symbol",
+                      /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+                      source: {
+                      type: "geojson",
+                      data: {
+                      type: 'FeatureCollection',
+                      features: [
+                      {
+                      type: 'Feature',
+                      properties: {},
+                      geometry: {
+                      type: "Point",
+                      coordinates: [86.92529072310032, 27.98803366188707]
+                      }
+                      }
+                      ]
+                      }
+                      },
+                      layout: {
+                      "icon-image": "custom-marker",
+                      }
+                      });
+      });
+      });
 // A simple line from origin to destination.
 var route = {
   "type": "FeatureCollection",
@@ -126,7 +352,7 @@ var route = {
         }
         });
          
-        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92529072310032, 27.98803366188707]];
+        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92517668868337, 27.98780699238563]];
         var flag = false; // detect whether popup triggers
 
         var flagRestart = false; // replay button
@@ -144,7 +370,7 @@ var route = {
        // console.log(point.features[0].geometry.coordinates);
         //console.log(point.features[0].geometry.coordinates[counter + 1])
 
-        //console.log(point.features[0].geometry.coordinates);
+        console.log(point.features[0].geometry.coordinates);
         //console.log(test[0][1])
         //var div;
 
@@ -400,7 +626,8 @@ var route = {
                     div6.innerHTML = 'Hillary Step';
                 }
     
-                if (test[a][0] == 86.92529072310032 && test[a][1] == 27.98803366188707) {
+                if (test[a][0] == 86.92517668868337 && test[a][1] == 27.98780699238563) {
+                  //console.log("test10")
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Summit");
     
@@ -463,7 +690,7 @@ var route = {
           if (flag) {
             flag = false;
             if (!flagRestart){
-              console.log("test9");
+              //console.log("test9");
               setTimeout(function(){requestAnimationFrame(animate)}, 2000);
             };
             
@@ -477,14 +704,14 @@ var route = {
 
          
         }
-        counter = counter+1;
+        
+        counter = counter + 1;
         
         } //animate end  
         document.getElementById('replay').addEventListener('click', function() {
         
           // Reset the counter
           counter = 0;
-          
 
         });
         
