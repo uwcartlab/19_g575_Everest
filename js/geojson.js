@@ -247,40 +247,557 @@ function createMap(){
       });
       });
 
-      map.on("click", function(e) {
-        /* Image: An image is loaded and added to the map. */
-        map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
-          
-        if (error) throw error;
-        map.addImage("custom-marker", image);
-        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
-        map.addLayer({
-        id: "marker",
-        type: "symbol",
-        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-        source: {
-        type: "geojson",
-        data: {
-        type: 'FeatureCollection',
-        features: [
-        {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-        type: "Point",
-        coordinates: [86.85719586641274, 28.00647209182954]
-        }
-        }
-        ]
-        }
-        },
-        layout: {
-        "icon-image": "custom-marker",
-        }
-        });
+// When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Base Camp");
 
-        });
-        });
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = '17,600 ft (5,380 m)';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '11% (21% at Sea Level)';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '11,435 ft (3,485 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = 'You are here!';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
+  
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Base Camp';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.85719586641274, 28.00647209182954])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+  // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker2', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Khumbu Icefall");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = '18,000 ft (5,486 m)';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '10.5%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '11,035 (3,364 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '400 ft (106 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'Take care in this area, the ice and crevasses can be dangerous to cross.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Khumbu Icefall';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.87348093822881, 27.99618320240794])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+    // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker3', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Camp 1");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = '19,900 ft (6,065 m)';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '9.7%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '9,135 ft (2,785 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '2,300 ft (685 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Camp 1';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.87624051444797, 27.98704598816326])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+    // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker4', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Camp 2");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = '21,300 ft (6,500 m)';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '9.4%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '7,735 ft (2,350 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '3,700 ft (1,120 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'Grab some tea, there'+"'s"+' still a fair bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Camp 2';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.90335492493271, 27.980322036569067])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+      // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker5', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Camp 3");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = '24,500 ft (7,470 m)';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '8.7%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '4,535 ft (1,380 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '6,900 ft (2,090 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'Get ready for more climbing, the Geneva Spur and Yellow Band are coming up, and then one of the great passive challenges of Everest.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Camp 3';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.92478118334084, 27.967650460942664])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+        // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker6', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Camp 4");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = '<span style="color: rgb(201, 34, 34)">26,000 ft (7,925 m)</span>';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '7.8%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '3,035 ft (925 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '8,400 ft (2,545 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. Oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Camp 4';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.93082159811098, 27.973526561469413])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+          // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker7', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("South Summit");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '7%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '335 ft (102 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '11,100 ft (3,368 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'A sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'South Summit';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.92582516958662, 27.985105632009432])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+            // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker8', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Hillary Step");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,840 ft (8,790 m)</span>';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '7%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = '195 ft (60 m)';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '11,240 ft (3,410 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'Named in honor of Sir Edmund Hillary and Tenzing Norgay, this is the most difficult portion of the climb. It was affected by the 2015 Nepal earthquake, but still remains the last major challenge before the summit.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Hillary Step';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.9250293824731, 27.98713299038748])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+
+              // When a click event occurs on a feature in the places layer, open a popup at the
+// location of the feature, with description HTML from its properties.
+map.on('click', 'marker9', function (e) {
+  var coordinates = e.features[0].geometry.coordinates.slice();
+  var description = e.features[0].properties.description;
+   
+  // Ensure that if the map is zoomed out such that multiple
+  // copies of the feature are visible, the popup appears
+  // over the copy being pointed to.
+  while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+  }
+   
+  var popup = new mapboxgl.Popup({ offset: 0 })
+  .setText("Summit");
+
+  var div = document.getElementById('elevation');
+  div.innerHTML = '';
+  div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">29,035 ft (8,850 m)</span>';
+
+  var div2 = document.getElementById('oxygen');
+  div2.innerHTML = '';
+  div2.innerHTML = '6.9%';
+  
+  var div3 = document.getElementById('distToSummit');
+  div3.innerHTML = '';
+  div3.innerHTML = 'You are here!';
+
+  var div4 = document.getElementById('distToBaseCamp');
+  div4.innerHTML = '';
+  div4.innerHTML = '11,435 ft (3,485 m)';
+
+  var div5 = document.getElementById('info');
+  div5.innerHTML = '';
+  div5.innerHTML = 'Congratulations, you made it! Take a moment to look around and savor your accomplishment, but don'+"'t"+' tarry too long- you still have to make it back down safely.';
+
+  var div6 = document.getElementById('Location');
+  div6.innerHTML = '';
+  div6.innerHTML = 'Summit';
+
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  //console.log(route.features[0].geometry.coordinates[counter]);
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat([86.92529072310032, 27.98803366188707])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map)
+    .togglePopup();
+  });
+   
+
+  // Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker', function () {
+  map.getCanvas().style.cursor = 'pointer';
+  });  
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker', function () {
+  map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker2', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker2', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker3', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker3', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker4', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  }); 
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker4', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker5', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker5', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker6', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker6', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker7', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker7', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker8', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker8', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //Change the cursor to a pointer when the mouse is over the places layer.
+  map.on('mouseenter', 'marker9', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+  // Change it back to a pointer when it leaves.
+  map.on('mouseleave', 'marker9', function () {
+    map.getCanvas().style.cursor = '';
+  });
+
+  //});
 // A simple line from origin to destination.
 var route = {
   "type": "FeatureCollection",
