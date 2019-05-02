@@ -20,9 +20,10 @@ function createMap(){
       maxBounds: bounds
     });
 
-    map.on("load", function () {
+    map.on("load", function() {
       /* Image: An image is loaded and added to the map. */
       map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+        
       if (error) throw error;
       map.addImage("custom-marker", image);
       /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
@@ -245,6 +246,41 @@ function createMap(){
                       });
       });
       });
+
+      map.on("click", function(e) {
+        /* Image: An image is loaded and added to the map. */
+        map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+          
+        if (error) throw error;
+        map.addImage("custom-marker", image);
+        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+        map.addLayer({
+        id: "marker",
+        type: "symbol",
+        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+        source: {
+        type: "geojson",
+        data: {
+        type: 'FeatureCollection',
+        features: [
+        {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+        type: "Point",
+        coordinates: [86.85719586641274, 28.00647209182954]
+        }
+        }
+        ]
+        }
+        },
+        layout: {
+        "icon-image": "custom-marker",
+        }
+        });
+
+        });
+        });
 // A simple line from origin to destination.
 var route = {
   "type": "FeatureCollection",
@@ -357,7 +393,26 @@ var route = {
 
         var flagRestart = false; // replay button
 
+        var hasPlayed;
+
+        function playing() {
+          counter = 0;
+          animate(counter);
+        }
+
+        var clickReplay = document.getElementById('replay');
+        animate(counter);
+
+        var _listener = function() {
+          var counter = 0;
+          animate(counter);
+        }
+
         function animate() {
+          hasPlayed = false;
+          //clickReplay.removeEventListener("click", _listener, true);
+          //document.getElementById('replay').removeEventListener('click', 0);
+
           if (counter==0){;
             flagRestart = false;
           }
@@ -370,7 +425,7 @@ var route = {
        // console.log(point.features[0].geometry.coordinates);
         //console.log(point.features[0].geometry.coordinates[counter + 1])
 
-        console.log(point.features[0].geometry.coordinates);
+        //console.log(point.features[0].geometry.coordinates);
         //console.log(test[0][1])
         //var div;
 
@@ -654,6 +709,11 @@ var route = {
                     var div6 = document.getElementById('Location');
                     div6.innerHTML = '';
                     div6.innerHTML = 'Summit';
+
+                    //clickReplay.addEventListener("click", _listener, true);
+                    //});
+                    clickReplay.addEventListener("click", _listener, true);
+                    hasPlayed = true;
                 }
   
   
@@ -697,7 +757,7 @@ var route = {
           } else {
             if (!flagRestart){
               //console.log("test");
-              setTimeout(function(){requestAnimationFrame(animate)}, 100);
+              setTimeout(function(){requestAnimationFrame(animate)}, 10);
             };
             //setTimeout(function(){requestAnimationFrame(animate)}, 100);
           }
@@ -708,15 +768,21 @@ var route = {
         counter = counter + 1;
         
         } //animate end  
-        document.getElementById('replay').addEventListener('click', function() {
-        
-          // Reset the counter
-          counter = 0;
 
-        });
         
         // Start the animation.
-        animate(counter);
+        //if (played == false) {
+          //animate(counter);
+        //}
+        //else if (played == true) {
+        //if (played == false) {
+          //playing();
+        //}
+        //else {
+          //if (played == true) {
+          //}
+        //}
+        //}
         });
         var toggleableLayerIds = [ 'Elevation'];
 
