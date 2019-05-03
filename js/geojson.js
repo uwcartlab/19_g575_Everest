@@ -20,6 +20,10 @@ function createMap(){
       maxBounds: bounds
     });
 
+    //NAvigation controls added
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'bottom-left');
+
     map.on("load", function() {
       /* Image: An image is loaded and added to the map. */
       map.loadImage("images/camp.png", function(error, image) {
@@ -918,9 +922,10 @@ var route = {
          
         var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92517668868337, 27.98780699238563]];
         var flag = false; // detect whether popup triggers
+        var flagStop = false;// flag stop and start
 
-        var flagRestart = false; // replay button
-
+        //var flagRestart = false; // replay button
+/*
         var hasPlayed;
 
         function playing() {
@@ -935,7 +940,7 @@ var route = {
           var counter = 0;
           animate(counter);
         }
-
+*/
         function animate() {
           hasPlayed = false;
           //clickReplay.removeEventListener("click", _listener, true);
@@ -1240,22 +1245,10 @@ var route = {
 
                     //clickReplay.addEventListener("click", _listener, true);
                     //});
-                    clickReplay.addEventListener("click", _listener, true);
-                    hasPlayed = true;
+                   // clickReplay.addEventListener("click", _listener, true);
+                    //hasPlayed = true;
                 }
   
-  
-  
-  
-              //}
-  
-              //else {
-                //console.log("else testing");
-                //div = document.getElementById('elevation');
-                //div.innerHTML = '';
-                //div.innerHTML = 'else test';
-              //}
-              
               // create DOM element for the marker
               var el = document.createElement('div');
               el.id = 'marker';
@@ -1277,15 +1270,13 @@ var route = {
           }
           if (flag) {
             flag = false;
-            if (!flagRestart){
-              //console.log("test9");
+            if (!flagStop){
               setTimeout(function(){requestAnimationFrame(animate)}, 2000);
             };
-            
           } else {
-            if (!flagRestart){
-              //console.log("test");
-              setTimeout(function(){requestAnimationFrame(animate)}, 10);
+            
+            if (!flagStop){
+              setTimeout(function(){requestAnimationFrame(animate)}, 100);
             };
             //setTimeout(function(){requestAnimationFrame(animate)}, 100);
           }
@@ -1296,21 +1287,34 @@ var route = {
         counter = counter + 1;
         
         } //animate end  
+        $('#replay').click(function() {
+          // Set the coordinates of the original point back to origin
+          point.features[0].geometry.coordinates = origin;
+          
+          // Update the source layer
+          map.getSource('point').setData(point);
+          
+          // Reset the counter
+          counter = 0;
+          
+          // Restart the animation.
+          animate(counter);
+          });
 
-        
-        // Start the animation.
-        //if (played == false) {
-          //animate(counter);
-        //}
-        //else if (played == true) {
-        //if (played == false) {
-          //playing();
-        //}
-        //else {
-          //if (played == true) {
-          //}
-        //}
-        //}
+        $("#play").click(function(){
+          $("i", this).toggleClass("fas fa-play fas fa-pause");
+          //requestAnimationFrame(animate).stop();
+          if (flagStop)
+          {
+            flagStop = false;
+            setTimeout(function(){requestAnimationFrame(animate)}, 100);
+          }else{
+            flagStop = true;
+            
+          }
+
+        });
+        animate(counter);
         });
         var toggleableLayerIds = [ 'Elevation'];
 
@@ -1345,24 +1349,6 @@ var route = {
 };
 
 
-
-
-function createSequenceControls(map,attributes){
-//$('#panel').append('<input class="range-slider" style="margin: 10px 10px 10px 10px;width: 93%;" type="range">');
-$('#panel').append('<div class="row" style="text-align: center;"><div class="col-4"><button class="skip btn-sm btn" id="reverse"><i class="fas fa-backward"></i></button></div> <div class="col-4"><button class="skip btn-sm btn" id="play"><i class="fas fa-play"></i></button></div> <div class="col-4"><button class="skip btn-sm btn" id="forward"><i class="fas fa-forward"></i></button></div></div>');
-
-    //set slider attributes
-    $('.range-slider').attr({
-        max: 6,
-        min: 0,
-        value: 0,
-        step: 1
-    });
-
-
-   
-};
-
 $("#buttonweather").click(function(){
     $("#weatherwidget").toggle();
   });
@@ -1372,14 +1358,4 @@ $("#buttonweather").click(function(){
 $(document).ready(function(){        
     $('#welcomeWindow').modal('show');
     createMap();
-    createSequenceControls();
    }); 
-  /*   window.onload = function () {
-console.log(localStorage.getItem("hasCodeRunBefore"));
-    if (localStorage.getItem("hasCodeRunBefore") == false) {
-      $('#test').modal('show');
-        localStorage.setItem("hasCodeRunBefore", true);
-    }
-
-    createMap();
-}*/

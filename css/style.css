@@ -46,7 +46,7 @@ html, body, #container {
   border: none;}
 
 .sequencePanel{
-  width: 210px;
+  width: 130px;
   height: 55px;
   z-index: 1;
   position: absolute;
@@ -546,18 +546,18 @@ html, body, #container {
     }
 
     #buttonweather{
-      z-index: 99;
+      z-index: 9;
       position: absolute;
-      bottom: 5%;
-      left:0.5%;
+      bottom: 140px;
+      left: 0.5%;
 
     }
 
-    #replay{
+   /* #replay{
       z-index: 80;
       position: absolute;
       top: 40px;
-    }
+    }*/
     /*----- welcome window------*/
     #welcome{
       background-color: #563d7c;
