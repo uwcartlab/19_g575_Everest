@@ -1302,7 +1302,7 @@ var route = {
           });
 
         $("#play").click(function(){
-          $("i", this).toggleClass("fas fa-play fas fa-pause");
+          $("i", this).toggleClass("fas fa-pause fas fa-play");
           //requestAnimationFrame(animate).stop();
           if (flagStop)
           {
