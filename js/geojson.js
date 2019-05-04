@@ -231,7 +231,7 @@ function createMap(){
               }
               });
 });
-map.loadImage("images/success.png", function(error, image) {
+map.loadImage("images/success1.png", function(error, image) {
         
   if (error) throw error;
   map.addImage("custom-marker2", image);
@@ -906,19 +906,21 @@ var route = {
         "line-color": "#007cbf"
         }
         });
-        
+        map.loadImage("images/trek.png", function(error, image) {
+        map.addImage("custom-marker3", image);
         map.addLayer({
         "id": "point",
         "source": "point",
         "type": "symbol",
         "layout": {
-        "icon-image": "airport-15",
+        "icon-image": "custom-marker3",
         "icon-rotate": ["get", "bearing"],
         "icon-rotation-alignment": "map",
         "icon-allow-overlap": true,
         "icon-ignore-placement": true
         }
         });
+      });
          
         var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92517668868337, 27.98780699238563]];
         var flag = false; // detect whether popup triggers
@@ -954,15 +956,6 @@ var route = {
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
-        
-       // console.log(point.features[0].geometry.coordinates);
-        //console.log(point.features[0].geometry.coordinates[counter + 1])
-
-        //console.log(point.features[0].geometry.coordinates);
-        //console.log(test[0][1])
-        //var div;
-
-        
         
         
         // Calculate the bearing to ensure the icon is rotated to match the route arc
