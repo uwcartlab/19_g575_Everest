@@ -862,6 +862,7 @@ var route = {
   
   // Used to increment the value of the point measurement against the route.
   var counter = 0;
+
     map.on('load', function () {
          
         map.addSource('contours', {
@@ -881,6 +882,7 @@ var route = {
         'paint': {
         'line-color': '#877b59',
         'line-width': 1,
+        
         }
         });
         
@@ -889,6 +891,7 @@ var route = {
         // Add a source and layer displaying a point which will be animated in a circle.
         map.addSource('route', {
         "type": "geojson",
+        lineMetrics: true,
         "data": route
         });
         
@@ -902,8 +905,25 @@ var route = {
         "source": "route",
         "type": "line",
         "paint": {
-        "line-width": 2,
-        "line-color": "#007cbf"
+        "line-width": 3,
+        "line-color": "#007cbf",
+        // 'line-gradient' must be specified using an expression
+        // with the special 'line-progress' property
+        'line-gradient': [
+        'interpolate',
+        ['linear'],
+        ['line-progress'],
+        0, "blue",
+        0.1, "royalblue",
+        0.3, "cyan",
+        0.5, "#7fc97f",
+        0.7, "yellow",
+        1, "#de2d26"
+        ]
+        },
+        layout: {
+        'line-cap': 'round',
+        'line-join': 'round'
         }
         });
         map.loadImage("images/trek.png", function(error, image) {
