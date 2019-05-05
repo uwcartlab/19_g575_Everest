@@ -20,6 +20,8 @@ function createMap(){
       maxBounds: bounds
     });
 
+ 
+
     //NAvigation controls added
     var nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'bottom-left');
@@ -278,6 +280,10 @@ map.on('click', 'baseCamp', function (e) {
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Base Camp");
 
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/basecamp.jpg\" width=\"200px\" height=\"150px\">";
+
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = '17,600 ft (5,380 m)';
@@ -329,6 +335,10 @@ map.on('click', 'khumbuIcefall', function (e) {
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Khumbu Icefall");
+
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
@@ -382,6 +392,10 @@ map.on('click', 'camp1', function (e) {
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 1");
 
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/camp1.jpg\" width=\"200px\" height=\"150px\">";
+
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = '19,900 ft (6,065 m)';
@@ -433,6 +447,10 @@ map.on('click', 'camp2', function (e) {
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 2");
+
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/camp2.jpg\" width=\"200px\" height=\"150px\">";
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
@@ -486,6 +504,10 @@ map.on('click', 'camp3', function (e) {
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 3");
 
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/camp3.jpg\" width=\"200px\" height=\"150px\">";
+
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = '24,500 ft (7,470 m)';
@@ -537,6 +559,10 @@ map.on('click', 'camp4', function (e) {
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 4");
+
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/camp4.jpg\" width=\"200px\" height=\"150px\">";
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
@@ -590,6 +616,10 @@ map.on('click', 'southSummit', function (e) {
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("South Summit");
 
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/southsumit.jpg\" width=\"200px\" height=\"150px\">";
+
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
@@ -642,6 +672,10 @@ map.on('click', 'hillaryStep', function (e) {
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Hillary Step");
 
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/hillary-step.jpg\" width=\"200px\" height=\"150px\">";
+
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,840 ft (8,790 m)</span>';
@@ -693,6 +727,10 @@ map.on('click', 'summit', function (e) {
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Summit");
+
+  var div = document.getElementById('locImg');
+  div.innerHTML = '';
+  div.innerHTML = "<img src=\"images/everest_sumit.jpg\" width=\"200px\" height=\"150px\">";
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
@@ -998,7 +1036,11 @@ var route = {
               if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
                 var popup = new mapboxgl.Popup({ offset: 0 })
                   .setText("Base Camp");
-    
+
+                  var div = document.getElementById('locImg');
+                  div.innerHTML = '';
+                  div.innerHTML = "<img src=\"images/basecamp.jpg\" width=\"200px\" height=\"150px\">";
+
                   var div = document.getElementById('elevation');
                   div.innerHTML = '';
                   div.innerHTML = '17,600 ft (5,380 m)';
@@ -1027,7 +1069,11 @@ var route = {
                 if (test[a][0] == 86.87348093822881 && test[a][1] == 27.99618320240794) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Khumbu Icefall");
-    
+                  
+                    var div = document.getElementById('locImg');
+                  div.innerHTML = '';
+                  div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
+
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = '18,000 ft (5,486 m)';
@@ -1056,7 +1102,11 @@ var route = {
                 if (test[a][0] == 86.87624051444797 && test[a][1] == 27.98704598816326) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Camp 1");
-    
+
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/camp1.jpg\" width=\"200px\" height=\"150px\">";
+
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = '19,900 ft (6,065 m)';
@@ -1085,7 +1135,11 @@ var route = {
                 if (test[a][0] == 86.90335492493271 && test[a][1] == 27.980322036569067) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Camp 2");
-    
+                  
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/camp2.jpg\" width=\"200px\" height=\"150px\">";
+
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = '21,300 ft (6,500 m)';
@@ -1114,7 +1168,11 @@ var route = {
                 if (test[a][0] == 86.92478118334084 && test[a][1] == 27.967650460942664) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Camp 3");
-    
+                  
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/camp3.jpg\" width=\"200px\" height=\"150px\">";
+
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = '24,500 ft (7,470 m)';
@@ -1143,7 +1201,11 @@ var route = {
                 if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Camp 4");
-    
+                  
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/camp4.jpg\" width=\"200px\" height=\"150px\">";
+
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = '<span style="color: rgb(201, 34, 34)">26,000 ft (7,925 m)</span>';
@@ -1172,7 +1234,13 @@ var route = {
                 if (test[a][0] == 86.92582516958662 && test[a][1] == 27.985105632009432) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("South Summit");
-    
+
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/southsumit.jpg\" width=\"200px\" height=\"150px\">";
+
+                   
+
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
@@ -1201,6 +1269,22 @@ var route = {
                 if (test[a][0] == 86.9250293824731 && test[a][1] == 27.98713299038748) {
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Hillary Step");
+
+                    var hillary={
+                      bearing: 27,
+                      center: [86.9250293824731, 27.98713299038748],
+                      zoom: 15
+                      } 
+                    
+                      //var activeChapterName = 'hillary';
+                       
+                      map.flyTo(hillary);
+                   
+                      
+
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/hillary-step.jpg\" width=\"200px\" height=\"150px\">";
     
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
@@ -1231,6 +1315,10 @@ var route = {
                   //console.log("test10")
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Summit");
+
+                    var div = document.getElementById('locImg');
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/everest_sumit.jpg\" width=\"200px\" height=\"150px\">";
     
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
@@ -1309,7 +1397,15 @@ var route = {
           
           // Reset the counter
           counter = 0;
+          var baseCamp={
+            bearing: 0,
+            center: [86.901, 27.988],
+            zoom: 13
+            } 
           
+            //var activeChapterName = 'hillary';
+             
+            map.flyTo(baseCamp);
           // Restart the animation.
           animate(counter);
           });

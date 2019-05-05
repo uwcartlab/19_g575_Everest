@@ -239,20 +239,17 @@ html, body, #container {
   /*--------------------sidebar-header----------------------*/
   
   .sidebar-wrapper .sidebar-header {
-    padding: 20px;
     overflow: hidden;
   }
   
-  .sidebar-wrapper .sidebar-header .user-pic {
+  .sidebar-wrapper .sidebar-header .loc-pic {
     float: right;
-    width: 60px;
-    padding: 2px;
+    width: 100%;
     border-radius: 12px;
-    margin-right: 15px;
     overflow: hidden;
   }
   
-  .sidebar-wrapper .sidebar-header .user-pic img {
+  .sidebar-wrapper .sidebar-header .loc-pic img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -494,7 +491,6 @@ html, body, #container {
   }
   /*----------layer button----------------*/
   #menu {
-    background: #fff;
     position: absolute;
     z-index: 1;
     top: 10px;
@@ -603,3 +599,5 @@ html, body, #container {
     .overlay button:hover {
     background-color:#4ea0da;
     }
+
+ 
