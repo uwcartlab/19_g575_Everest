@@ -863,7 +863,7 @@ var route = {
   }]
   };
 
-
+var origin=[86.85719586641274, 28.00647209182954];
   
   // A single point that animates along the route.
   // Coordinates are initially set to origin.
@@ -924,8 +924,7 @@ var route = {
         }
         });
         
-      });
-      map.on('load', function () {
+     
         // Add a source and layer displaying a point which will be animated in a circle.
         map.addSource('route', {
         "type": "geojson",
@@ -982,34 +981,11 @@ var route = {
          
         var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92517668868337, 27.98780699238563]];
         var flag = false; // detect whether popup triggers
-        var flagStop = false;// flag stop and start
+        var flagStop = true;// flag stop and start
 
-        //var flagRestart = false; // replay button
-/*
-        var hasPlayed;
 
-        function playing() {
-          counter = 0;
-          animate(counter);
-        }
-
-        var clickReplay = document.getElementById('replay');
-        animate(counter);
-
-        var _listener = function() {
-          var counter = 0;
-          animate(counter);
-        }
-*/
         function animate() {
-          hasPlayed = false;
-          //clickReplay.removeEventListener("click", _listener, true);
-          //document.getElementById('replay').removeEventListener('click', 0);
-
-          if (counter==0){;
-            flagRestart = false;
-          }
-
+       
 
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
@@ -1390,7 +1366,7 @@ var route = {
         } //animate end  
         $('#replay').click(function() {
           // Set the coordinates of the original point back to origin
-          point.features[0].geometry.coordinates = origin;
+         point.features[0].geometry.coordinates = test[0];
           
           // Update the source layer
           map.getSource('point').setData(point);
@@ -1402,16 +1378,25 @@ var route = {
             center: [86.901, 27.988],
             zoom: 13
             } 
-          
-            //var activeChapterName = 'hillary';
-             
+       
             map.flyTo(baseCamp);
+            if (flag) {
+              flag = false;
+              if (!flagStop){
+                setTimeout(function(){requestAnimationFrame(animate)}, 2000);
+              };
+            } 
+           
           // Restart the animation.
-          animate(counter);
+          //setTimeout(function(){requestAnimationFrame(animate)}, 100);
+          //animate(counter);
           });
 
         $("#play").click(function(){
-          $("i", this).toggleClass("fas fa-pause fas fa-play");
+        
+          
+          $("i", this).toggleClass("fas fa-play fas fa-pause");
+          
           //requestAnimationFrame(animate).stop();
           if (flagStop)
           {
@@ -1421,7 +1406,7 @@ var route = {
             flagStop = true;
             
           }
-
+          
         });
         animate(counter);
         });
