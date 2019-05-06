@@ -1380,12 +1380,12 @@ var origin=[86.85719586641274, 28.00647209182954];
             } 
        
             map.flyTo(baseCamp);
-            if (flag) {
+            /*if (flag) {
               flag = false;
               if (!flagStop){
                 setTimeout(function(){requestAnimationFrame(animate)}, 2000);
               };
-            } 
+            } */
            
           // Restart the animation.
           //setTimeout(function(){requestAnimationFrame(animate)}, 100);
