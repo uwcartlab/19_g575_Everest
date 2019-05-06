@@ -1,4 +1,3 @@
-
 // Global variable to hold layer
 var searchLayer;
 $(function () {
@@ -979,7 +978,7 @@ var origin=[86.85719586641274, 28.00647209182954];
         });
       });
          
-        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92517668868337, 27.98780699238563]];
+        var test = [[86.85719586641274, 28.00647209182954], [86.87348093822881, 27.99618320240794], [86.87624051444797, 27.98704598816326], [86.90335492493271, 27.980322036569067], [86.92478118334084, 27.967650460942664], [86.93082159811098, 27.973526561469413], [86.92582516958662, 27.985105632009432], [86.9250293824731, 27.98713299038748], [86.92529072310032, 27.98803366188707]];
         var flag = false; // detect whether popup triggers
         var flagStop = true;// flag stop and start
 
@@ -990,14 +989,12 @@ var origin=[86.85719586641274, 28.00647209182954];
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
-
-        console.log(point.features[0]);
         
         
         // Calculate the bearing to ensure the icon is rotated to match the route arc
         // The bearing is calculate between the current point and the next point, except
         // at the end of the arc use the previous point and the current point
-       point.features[0].properties.bearing = turf.bearing(
+        point.features[0].properties.bearing = turf.bearing(
         turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter - 1 : counter]),
         turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter : counter + 1])
         );
@@ -1006,7 +1003,7 @@ var origin=[86.85719586641274, 28.00647209182954];
         map.getSource('point').setData(point);
         
         // Request the next frame of animation so long the end has not been reached.
-        if (counter <steps) {
+        if (counter <= steps) {
           for (a in test) {
             if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
               flag = true;
@@ -1289,7 +1286,7 @@ var origin=[86.85719586641274, 28.00647209182954];
                     div6.innerHTML = 'Hillary Step';
                 }
     
-                if (test[a][0] == 86.92517668868337 && test[a][1] == 27.98780699238563) {
+                if (test[a][0] == 86.92529072310032 && test[a][1] == 27.98803366188707) {
                   //console.log("test10")
                   var popup = new mapboxgl.Popup({ offset: 0 })
                     .setText("Summit");
@@ -1355,7 +1352,7 @@ var origin=[86.85719586641274, 28.00647209182954];
           } else {
             
             if (!flagStop){
-              setTimeout(function(){requestAnimationFrame(animate)}, 100);
+              setTimeout(function(){requestAnimationFrame(animate)}, 50);
             };
             //setTimeout(function(){requestAnimationFrame(animate)}, 100);
           }
@@ -1367,9 +1364,11 @@ var origin=[86.85719586641274, 28.00647209182954];
         
         } //animate end  
         $('#replay').click(function() {
+          if (counter == steps + 1) {
+            requestAnimationFrame(animate);
+          }
           // Set the coordinates of the original point back to origin
-         point.features[0].geometry.coordinates = origin;
-        // flag = true;
+          point.features[0].geometry.coordinates = origin;
           
           // Update the source layer
           map.getSource('point').setData(point);
@@ -1383,10 +1382,20 @@ var origin=[86.85719586641274, 28.00647209182954];
             } 
        
             map.flyTo(baseCamp);
-            
-          
+
+            //animate(counter);
+
+            //setTimeout(function(){requestAnimationFrame(animate)}, 50);
+
+            /*if (flag) {
+              flag = false;
+              if (!flagStop){
+                setTimeout(function(){requestAnimationFrame(animate)}, 2000);
+              };
+            } */
+           
           // Restart the animation.
-          setTimeout(function(){requestAnimationFrame(animate)}, 100);
+          //setTimeout(function(){requestAnimationFrame(animate)}, 100);
           //animate(counter);
           });
 
@@ -1399,7 +1408,7 @@ var origin=[86.85719586641274, 28.00647209182954];
           if (flagStop)
           {
             flagStop = false;
-            setTimeout(function(){requestAnimationFrame(animate)}, 100);
+            setTimeout(function(){requestAnimationFrame(animate)}, 50);
           }else{
             flagStop = true;
             
@@ -1450,4 +1459,4 @@ $("#buttonweather").click(function(){
 $(document).ready(function(){        
     $('#welcomeWindow').modal('show');
     createMap();
-   }); 
+   });
