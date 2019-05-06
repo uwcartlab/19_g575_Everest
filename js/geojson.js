@@ -990,12 +990,14 @@ var origin=[86.85719586641274, 28.00647209182954];
         // Update point geometry to a new position based on counter denoting
         // the index to access the arc.
         point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
+
+        console.log(point.features[0]);
         
         
         // Calculate the bearing to ensure the icon is rotated to match the route arc
         // The bearing is calculate between the current point and the next point, except
         // at the end of the arc use the previous point and the current point
-        point.features[0].properties.bearing = turf.bearing(
+       point.features[0].properties.bearing = turf.bearing(
         turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter - 1 : counter]),
         turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter : counter + 1])
         );
@@ -1004,7 +1006,7 @@ var origin=[86.85719586641274, 28.00647209182954];
         map.getSource('point').setData(point);
         
         // Request the next frame of animation so long the end has not been reached.
-        if (counter < steps) {
+        if (counter <steps) {
           for (a in test) {
             if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
               flag = true;
@@ -1366,7 +1368,8 @@ var origin=[86.85719586641274, 28.00647209182954];
         } //animate end  
         $('#replay').click(function() {
           // Set the coordinates of the original point back to origin
-         point.features[0].geometry.coordinates = test[0];
+         point.features[0].geometry.coordinates = origin;
+        // flag = true;
           
           // Update the source layer
           map.getSource('point').setData(point);
@@ -1380,15 +1383,10 @@ var origin=[86.85719586641274, 28.00647209182954];
             } 
        
             map.flyTo(baseCamp);
-            /*if (flag) {
-              flag = false;
-              if (!flagStop){
-                setTimeout(function(){requestAnimationFrame(animate)}, 2000);
-              };
-            } */
-           
+            
+          
           // Restart the animation.
-          //setTimeout(function(){requestAnimationFrame(animate)}, 100);
+          setTimeout(function(){requestAnimationFrame(animate)}, 100);
           //animate(counter);
           });
 
