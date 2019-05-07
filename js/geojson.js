@@ -958,7 +958,7 @@ var origin=[86.85719586641274, 28.00647209182954];
         'interpolate',
         ['linear'],
         ['line-progress'],
-        0, "blue",
+        0, "#a4a4ff",
         0.1, "royalblue",
         0.3, "cyan",
         0.5, "#7fc97f",
@@ -1468,7 +1468,12 @@ var origin=[86.85719586641274, 28.00647209182954];
 $("#buttonweather").click(function(){
     $("#weatherwidget").toggle();
   });
-
+ $("#go").click(function() {
+    $("#play").addClass("highlight");
+  });
+   $("#play").click(function() {
+      $("#play").removeClass("highlight");
+    });
 //$(document).ready(); // calling create map function on document ready
 
 $(document).ready(function(){        

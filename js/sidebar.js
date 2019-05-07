@@ -1,6 +1,6 @@
 jQuery(function ($) {
 
-    $(".sidebar-dropdown > a").click(function() {
+ /*   $(".sidebar-dropdown > a").click(function() {
   $(".sidebar-submenu").slideUp(200);
   if (
     $(this)
@@ -20,7 +20,7 @@ jQuery(function ($) {
       .parent()
       .addClass("active");
   }
-});
+});*/
 
 $("#close-sidebar").click(function() {
   $(".page-wrapper").removeClass("toggled");

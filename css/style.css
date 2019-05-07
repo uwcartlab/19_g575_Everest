@@ -90,8 +90,22 @@ html, body, #container {
   cursor: pointer;
 }
 
-.skip{margin: 10px;}
+.skip{    margin: 8px;
+  font-size: 20px;
+  background-color: #c4c5be;
+  color: #000;}
 
+#replay{
+  background-color: #c4c5be;
+  color: #000;
+ 
+}
+
+
+.highlight{
+  background-color: #fb7100;
+  color:#fff;
+}
 .leaflet-bottom {
   margin-bottom: 30px;
 }
@@ -167,7 +181,7 @@ html, body, #container {
   
   @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content {
-      padding-right: 260px;
+      padding-right:350px;
     }
   }
   /*----------------show sidebar button----------------*/
@@ -186,12 +200,12 @@ html, body, #container {
   /*----------------sidebar-wrapper----------------*/
   
   .sidebar-wrapper {
-    width: 260px;
+    width: 350px;
     height: 100%;
     max-height: 100%;
     position: fixed;
     top: 0;
-    right: -300px;
+    right: -400px;
     z-index: 999;
   }
   
@@ -263,7 +277,7 @@ html, body, #container {
   
   .sidebar-wrapper .sidebar-menu .header-menu span {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
     padding: 10px 10px 5px 10px;
     display: inline-block;
   }
@@ -473,7 +487,7 @@ html, body, #container {
   }
   
   .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
-      color: #6c7b88;
+      color: #fff;
   }
   
   .chiller-theme .sidebar-footer {
