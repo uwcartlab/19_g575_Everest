@@ -1360,6 +1360,7 @@ var origin=[86.85719586641274, 28.00647209182954];
 
 
           }
+        if (counter != steps) {
           if (flag) {
             flag = false;
             if (!flagStop){
@@ -1372,6 +1373,7 @@ var origin=[86.85719586641274, 28.00647209182954];
             };
             //setTimeout(function(){requestAnimationFrame(animate)}, 100);
           }
+        }
 
          
         }
