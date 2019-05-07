@@ -1395,7 +1395,7 @@ var origin=[86.85719586641274, 28.00647209182954];
           counter = 0;
           var baseCamp={
             bearing: 0,
-            center: [86.901, 27.988],
+            center: [86.909, 27.988],
             zoom: 13
             } 
        
