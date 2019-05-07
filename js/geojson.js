@@ -285,7 +285,8 @@ map.on('click', 'baseCamp', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = '17,600 ft (5,380 m)';
+  div.innerHTML = div.innerHTML = '<span style="color: blue">17,600 ft (5,380 m)</span>';
+  //div.innerHTML = '17,600 ft (5,380 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -341,7 +342,8 @@ map.on('click', 'khumbuIcefall', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = '18,000 ft (5,486 m)';
+  div.innerHTML = div.innerHTML = '<span style="color: royalblue">18,000 ft (5,486 m)</span>';
+  //div.innerHTML = '18,000 ft (5,486 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -397,7 +399,8 @@ map.on('click', 'camp1', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = '19,900 ft (6,065 m)';
+  div.innerHTML = div.innerHTML = '<span style="color: cyan">19,900 ft (6,065 m)</span>';
+  //div.innerHTML = '19,900 ft (6,065 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -453,7 +456,8 @@ map.on('click', 'camp2', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = '21,300 ft (6,500 m)';
+  div.innerHTML = div.innerHTML = '<span style="color: #7fc97f">21,300 ft (6,500 m)</span>';
+  //div.innerHTML = '21,300 ft (6,500 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -509,7 +513,8 @@ map.on('click', 'camp3', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = '24,500 ft (7,470 m)';
+  div.innerHTML = div.innerHTML = '<span style="color: #fd8d3c">24,500 ft (7,470 m)</span>';
+  //div.innerHTML = '24,500 ft (7,470 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -565,11 +570,12 @@ map.on('click', 'camp4', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = '<span style="color: rgb(201, 34, 34)">26,000 ft (7,925 m)</span>';
+  div.innerHTML = '<span style="color: #f16913">26,000 ft (7,925 m)</span>';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
-  div2.innerHTML = '7.8%';
+  div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7.8%</span>';
+  //div2.innerHTML = '7.8%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -625,7 +631,8 @@ map.on('click', 'southSummit', function (e) {
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
-  div2.innerHTML = '7%';
+  div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
+  //div2.innerHTML = '7%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -681,7 +688,8 @@ map.on('click', 'hillaryStep', function (e) {
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
-  div2.innerHTML = '7%';
+  div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
+  //div2.innerHTML = '7%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -737,7 +745,8 @@ map.on('click', 'summit', function (e) {
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
-  div2.innerHTML = '6.9%';
+  div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">6.9%</span>';
+  //div2.innerHTML = '6.9%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -1018,7 +1027,8 @@ var origin=[86.85719586641274, 28.00647209182954];
 
                   var div = document.getElementById('elevation');
                   div.innerHTML = '';
-                  div.innerHTML = '17,600 ft (5,380 m)';
+                  div.innerHTML = div.innerHTML = '<span style="color: blue">17,600 ft (5,380 m)</span>';
+                  //div.innerHTML = '17,600 ft (5,380 m)';
     
                   var div2 = document.getElementById('oxygen');
                   div2.innerHTML = '';
@@ -1046,12 +1056,13 @@ var origin=[86.85719586641274, 28.00647209182954];
                     .setText("Khumbu Icefall");
                   
                     var div = document.getElementById('locImg');
-                  div.innerHTML = '';
-                  div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
+                    div.innerHTML = '';
+                    div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
 
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
-                    div.innerHTML = '18,000 ft (5,486 m)';
+                    div.innerHTML = div.innerHTML = '<span style="color: royalblue">18,000 ft (5,486 m)</span>';
+                    //div.innerHTML = '18,000 ft (5,486 m)';
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
@@ -1084,7 +1095,8 @@ var origin=[86.85719586641274, 28.00647209182954];
 
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
-                    div.innerHTML = '19,900 ft (6,065 m)';
+                    div.innerHTML = div.innerHTML = '<span style="color: cyan">19,900 ft (6,065 m)</span>';
+                    //div.innerHTML = '19,900 ft (6,065 m)';
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
@@ -1117,7 +1129,8 @@ var origin=[86.85719586641274, 28.00647209182954];
 
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
-                    div.innerHTML = '21,300 ft (6,500 m)';
+                    div.innerHTML = div.innerHTML = '<span style="color: #7fc97f">21,300 ft (6,500 m)</span>';
+                    //div.innerHTML = '21,300 ft (6,500 m)';
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
@@ -1150,7 +1163,8 @@ var origin=[86.85719586641274, 28.00647209182954];
 
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
-                    div.innerHTML = '24,500 ft (7,470 m)';
+                    div.innerHTML = div.innerHTML = '<span style="color: #fd8d3c">24,500 ft (7,470 m)</span>';
+                    //div.innerHTML = '24,500 ft (7,470 m)';
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
@@ -1183,11 +1197,12 @@ var origin=[86.85719586641274, 28.00647209182954];
 
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
-                    div.innerHTML = '<span style="color: rgb(201, 34, 34)">26,000 ft (7,925 m)</span>';
+                    div.innerHTML = '<span style="color: #f16913">26,000 ft (7,925 m)</span>';
           
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
-                    div2.innerHTML = '7.8%';
+                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7.8%</span>';
+                    //div2.innerHTML = '7.8%';
                     
                     var div3 = document.getElementById('distToSummit');
                     div3.innerHTML = '';
@@ -1214,15 +1229,14 @@ var origin=[86.85719586641274, 28.00647209182954];
                     div.innerHTML = '';
                     div.innerHTML = "<img src=\"images/southsumit.jpg\" width=\"200px\" height=\"150px\">";
 
-                   
-
                     var div = document.getElementById('elevation');
                     div.innerHTML = '';
                     div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
-                    div2.innerHTML = '7%';
+                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
+                    //div2.innerHTML = '7%';
                     
                     var div3 = document.getElementById('distToSummit');
                     div3.innerHTML = '';
@@ -1267,7 +1281,8 @@ var origin=[86.85719586641274, 28.00647209182954];
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
-                    div2.innerHTML = '7%';
+                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
+                    //div2.innerHTML = '7%';
                     
                     var div3 = document.getElementById('distToSummit');
                     div3.innerHTML = '';
@@ -1301,7 +1316,8 @@ var origin=[86.85719586641274, 28.00647209182954];
     
                     var div2 = document.getElementById('oxygen');
                     div2.innerHTML = '';
-                    div2.innerHTML = '6.9%';
+                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">6.9%</span>';
+                    //div2.innerHTML = '6.9%';
                     
                     var div3 = document.getElementById('distToSummit');
                     div3.innerHTML = '';
@@ -1411,7 +1427,6 @@ var origin=[86.85719586641274, 28.00647209182954];
             setTimeout(function(){requestAnimationFrame(animate)}, 50);
           }else{
             flagStop = true;
-            
           }
           
         });
