@@ -285,7 +285,7 @@ map.on('click', 'baseCamp', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = div.innerHTML = '<span style="color: blue">17,600 ft (5,380 m)</span>';
+  div.innerHTML = div.innerHTML = '<span style="color:#a4a4ff">17,600 ft (5,380 m)</span>';
   //div.innerHTML = '17,600 ft (5,380 m)';
 
   var div2 = document.getElementById('oxygen');
@@ -1027,7 +1027,7 @@ var origin=[86.85719586641274, 28.00647209182954];
 
                   var div = document.getElementById('elevation');
                   div.innerHTML = '';
-                  div.innerHTML = div.innerHTML = '<span style="color: blue">17,600 ft (5,380 m)</span>';
+                  div.innerHTML = div.innerHTML = '<span style="color:#a4a4ff">17,600 ft (5,380 m)</span>';
                   //div.innerHTML = '17,600 ft (5,380 m)';
     
                   var div2 = document.getElementById('oxygen');
