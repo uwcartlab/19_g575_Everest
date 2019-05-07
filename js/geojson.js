@@ -27,7 +27,7 @@ function createMap(){
 
     map.on("load", function() {
       /* Image: An image is loaded and added to the map. */
-      map.loadImage("images/camp.png", function(error, image) {
+      map.loadImage("images/camp_deselect.png", function(error, image) {
         
       if (error) throw error;
       map.addImage("custom-marker", image);
@@ -153,7 +153,7 @@ function createMap(){
               }
               });
     });
-      map.loadImage("images/pointmarker.png", function(error, image) {
+      map.loadImage("images/khumbu_icefall_deselect.png", function(error, image) {
         
         if (error) throw error;
         map.addImage("custom-marker1", image);
@@ -182,6 +182,11 @@ function createMap(){
           "icon-image": "custom-marker1",
           }
           });
+      });
+      map.loadImage("images/south_summit_deselect.png", function(error, image) {
+        
+        if (error) throw error;
+        map.addImage("custom-marker2", image);
           map.addLayer({
             id: "southSummit",
             type: "symbol",
@@ -203,10 +208,14 @@ function createMap(){
             }
             },
             layout: {
-            "icon-image": "custom-marker1",
+            "icon-image": "custom-marker2",
             }
             });
-
+          });
+            map.loadImage("images/hillary_step_deselect.png", function(error, image) {
+        
+              if (error) throw error;
+              map.addImage("custom-marker3", image);
             map.addLayer({
               id: "hillaryStep",
               type: "symbol",
@@ -228,14 +237,14 @@ function createMap(){
               }
               },
               layout: {
-              "icon-image": "custom-marker1",
+              "icon-image": "custom-marker3",
               }
               });
 });
-map.loadImage("images/success1.png", function(error, image) {
+map.loadImage("images/summit_deselect.png", function(error, image) {
         
   if (error) throw error;
-  map.addImage("custom-marker2", image);
+  map.addImage("custom-marker4", image);
   /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
   map.addLayer({
     id: "summit",
@@ -258,7 +267,7 @@ map.loadImage("images/success1.png", function(error, image) {
     }
     },
     layout: {
-    "icon-image": "custom-marker2",
+    "icon-image": "custom-marker4",
     }
     });
 });
@@ -972,13 +981,13 @@ var origin=[86.85719586641274, 28.00647209182954];
         }
         });
         map.loadImage("images/trek.png", function(error, image) {
-        map.addImage("custom-marker3", image);
+        map.addImage("custom-marker5", image);
         map.addLayer({
         "id": "point",
         "source": "point",
         "type": "symbol",
         "layout": {
-        "icon-image": "custom-marker3",
+        "icon-image": "custom-marker5",
         "icon-rotate": ["get", "bearing"],
         "icon-rotation-alignment": "map",
         "icon-allow-overlap": true,
