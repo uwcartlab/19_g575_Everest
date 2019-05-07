@@ -101,9 +101,39 @@ html, body, #container {
  
 }
 
+.mapboxgl-ctrl-group {
+
+  border-radius: 4px;
+  overflow: hidden;
+  background: #6c757d;
+  background-repeat: no-repeat;
+  background-size: auto;
+
+}
+
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-image: url(/images/zoom_in.svg);
+  background-position: center;
+}
+
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: center;
+  background-image: url(/images/zoom_out.svg);
+}
+
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+
+  background-position: center;
+  background-image:  url(/images/compass.svg);
+  background-repeat: no-repeat;
+  display: inline-block;}
 
 .highlight{
-  background-color: #fb7100;
+  background-color: #23f3fc;
   color:#fff;
 }
 .leaflet-bottom {
@@ -613,5 +643,7 @@ html, body, #container {
     .overlay button:hover {
     background-color:#4ea0da;
     }
+
+
 
  

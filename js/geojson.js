@@ -27,7 +27,7 @@ function createMap(){
 
     map.on("load", function() {
       /* Image: An image is loaded and added to the map. */
-      map.loadImage("images/camp.png", function(error, image) {
+      map.loadImage("images/camp_deselect.png", function(error, image) {
         
       if (error) throw error;
       map.addImage("custom-marker", image);
@@ -153,7 +153,7 @@ function createMap(){
               }
               });
     });
-      map.loadImage("images/pointmarker.png", function(error, image) {
+      map.loadImage("images/khumbu_icefall_deselect.png", function(error, image) {
         
         if (error) throw error;
         map.addImage("custom-marker1", image);
@@ -182,6 +182,11 @@ function createMap(){
           "icon-image": "custom-marker1",
           }
           });
+      });
+      map.loadImage("images/south_summit_deselect.png", function(error, image) {
+        
+        if (error) throw error;
+        map.addImage("custom-marker2", image);
           map.addLayer({
             id: "southSummit",
             type: "symbol",
@@ -203,10 +208,14 @@ function createMap(){
             }
             },
             layout: {
-            "icon-image": "custom-marker1",
+            "icon-image": "custom-marker2",
             }
             });
-
+          });
+            map.loadImage("images/hillary_step_deselect.png", function(error, image) {
+        
+              if (error) throw error;
+              map.addImage("custom-marker3", image);
             map.addLayer({
               id: "hillaryStep",
               type: "symbol",
@@ -228,14 +237,14 @@ function createMap(){
               }
               },
               layout: {
-              "icon-image": "custom-marker1",
+              "icon-image": "custom-marker3",
               }
               });
 });
-map.loadImage("images/success1.png", function(error, image) {
+map.loadImage("images/summit_deselect.png", function(error, image) {
         
   if (error) throw error;
-  map.addImage("custom-marker2", image);
+  map.addImage("custom-marker4", image);
   /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
   map.addLayer({
     id: "summit",
@@ -258,7 +267,7 @@ map.loadImage("images/success1.png", function(error, image) {
     }
     },
     layout: {
-    "icon-image": "custom-marker2",
+    "icon-image": "custom-marker4",
     }
     });
 });
@@ -285,7 +294,7 @@ map.on('click', 'baseCamp', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = div.innerHTML = '<span style="color:#a4a4ff">17,600 ft (5,380 m)</span>';
+  div.innerHTML = div.innerHTML = '<span style="color:#1499ff">17,600 ft (5,380 m)</span>';
   //div.innerHTML = '17,600 ft (5,380 m)';
 
   var div2 = document.getElementById('oxygen');
@@ -342,7 +351,7 @@ map.on('click', 'khumbuIcefall', function (e) {
 
   var div = document.getElementById('elevation');
   div.innerHTML = '';
-  div.innerHTML = div.innerHTML = '<span style="color: royalblue">18,000 ft (5,486 m)</span>';
+  div.innerHTML = div.innerHTML = '<span style="color: #14bcff">18,000 ft (5,486 m)</span>';
   //div.innerHTML = '18,000 ft (5,486 m)';
 
   var div2 = document.getElementById('oxygen');
@@ -958,8 +967,8 @@ var origin=[86.85719586641274, 28.00647209182954];
         'interpolate',
         ['linear'],
         ['line-progress'],
-        0, "#a4a4ff",
-        0.1, "royalblue",
+        0, "#1499ff",
+        0.1, "#14bcff",
         0.3, "cyan",
         0.5, "#7fc97f",
         0.7, "yellow",
@@ -972,13 +981,13 @@ var origin=[86.85719586641274, 28.00647209182954];
         }
         });
         map.loadImage("images/trek.png", function(error, image) {
-        map.addImage("custom-marker3", image);
+        map.addImage("custom-marker5", image);
         map.addLayer({
         "id": "point",
         "source": "point",
         "type": "symbol",
         "layout": {
-        "icon-image": "custom-marker3",
+        "icon-image": "custom-marker5",
         "icon-rotate": ["get", "bearing"],
         "icon-rotation-alignment": "map",
         "icon-allow-overlap": true,
