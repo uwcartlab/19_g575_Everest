@@ -88,7 +88,7 @@
          </nav>
          <main class="page-content">
 
-            <button id="buttonweather"  type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Everest Weather"><i class="fas fa-cloud-sun"></i></button>
+           
            <!-- <div class='overlay'>
                <button id='replay'>Replay</button>
                </div>-->
@@ -98,12 +98,26 @@
             </div>
             <section>
                <div class="container-fluid">
-                  <nav id="menu"  data-toggle="tooltip" data-placement="right" title="Elevation"></nav>
+                  
                   <div id="map"></div>
                   <div id="panel" class="sequencePanel">
-                        <div class="row" style="text-align: center;">
-                            <div class="col-6"><button class="skip btn-sm btn" id="play"><i class="fas fa-play"></i></button></div> 
-                            <div class="col-6"><button class="skip btn-sm btn" id="replay"><i class="fas fa-redo"></i></button></div></div>
+                     <ul class="pannelMenu">
+                        <li>
+                              <button type="button" class="btn-sm btn-secondary" id="play"><i class="fas fa-play"></i></button>
+                        </li>
+                        <li>
+                              <button type="button" class="btn-sm btn-secondary" id="replay"><i class="fas fa-redo"></i></button>
+                        </li>
+                        <li>
+                              <button id="menu"  class="btn-sm btn-secondary" data-toggle="tooltip" data-placement="right" title="Elevation"></button>
+                        </li>
+                        <li>
+                              <button id="buttonweather"  type="button" class="btn-sm btn-secondary" data-toggle="tooltip" data-placement="right" title="Everest Weather"><i class="fas fa-cloud-sun"></i></button>
+                        </li>
+                     </ul>
+                             
+                            
+                            
                      <!--panel for sequence buttons-->
                   </div>
                </div>

@@ -1462,10 +1462,10 @@ var origin=[86.85719586641274, 28.00647209182954];
         var link = document.createElement('a');
         link.href = '#';
         //link.className = 'active';
-        link.textContent = id;
+        link.innerHTML ='<i class="fas fa-mountain"></i>';
          
         link.onclick = function (e) {
-        var clickedLayer = this.textContent;
+        var clickedLayer = id;
         e.preventDefault();
         e.stopPropagation();
          
