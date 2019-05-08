@@ -3,37 +3,189 @@ var searchLayer;
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
 //function to instantiate the Leaflet map
 function createMap(){
-    //create the map
-    mapboxgl.accessToken = 'pk.eyJ1IjoibmlzaGlkaWxpcHNvbnRha2tlIiwiYSI6ImNqY3FucHJ4azAzNXgzM3MwbGRvM3M2YWsifQ.Mwh9X4xZhkSBBCTfBlZHEQ';
-    
+  //create the map
+  mapboxgl.accessToken = 'pk.eyJ1IjoibmlzaGlkaWxpcHNvbnRha2tlIiwiYSI6ImNqY3FucHJ4azAzNXgzM3MwbGRvM3M2YWsifQ.Mwh9X4xZhkSBBCTfBlZHEQ';
+  
+  //SW coordinate, NE coordinate boundaries
   var bounds = [[86.770444, 27.9033365], [87.054519, 28.08]];
-  //SW coordinate, NE coordinate
 
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/nishidilipsontakke/cjuhnd62s559x1fqmt6kccmfe',
-      center: [86.909, 27.988],
-      zoom: 13,
-      maxBounds: bounds
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/nishidilipsontakke/cjuhnd62s559x1fqmt6kccmfe',
+    center: [86.909, 27.988],
+    zoom: 13,
+    maxBounds: bounds
+});
+
+//Navigation controls added
+var nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'bottom-left');
+
+map.on("load", function() {
+  /* Image: An image is loaded and added to the map. */
+  map.loadImage("images/camp_deselect.png", function(error, image) {
+    
+  if (error) throw error;
+  map.addImage("custom-marker", image);
+  /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+  map.addLayer({
+  id: "baseCamp",
+  type: "symbol",
+  /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+  source: {
+  type: "geojson",
+  data: {
+  type: 'FeatureCollection',
+  features: [
+  {
+  type: 'Feature',
+  properties: {},
+  geometry: {
+  type: "Point",
+  coordinates: [86.85719586641274, 28.00647209182954]
+  }
+  }
+  ]
+  }
+  },
+  layout: {
+  "icon-image": "custom-marker",
+  }
+  });
+  map.addLayer({
+    id: "camp1",
+    type: "symbol",
+    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+    source: {
+    type: "geojson",
+    data: {
+    type: 'FeatureCollection',
+    features: [
+    {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+    type: "Point",
+    coordinates: [86.87624051444797, 27.98704598816326]
+    }
+    }
+    ]
+    }
+    },
+    layout: {
+    "icon-image": "custom-marker",
+    }
     });
-
- 
-
-    //NAvigation controls added
-    var nav = new mapboxgl.NavigationControl();
-    map.addControl(nav, 'bottom-left');
-
-    map.on("load", function() {
-      /* Image: An image is loaded and added to the map. */
-      map.loadImage("images/camp_deselect.png", function(error, image) {
-        
-      if (error) throw error;
-      map.addImage("custom-marker", image);
-      /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
-      map.addLayer({
-      id: "baseCamp",
+  map.addLayer({
+    id: "camp2",
+    type: "symbol",
+    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+    source: {
+    type: "geojson",
+    data: {
+    type: 'FeatureCollection',
+    features: [
+    {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+    type: "Point",
+    coordinates: [86.90335492493271, 27.980322036569067]
+    }
+    }
+    ]
+    }
+    },
+    layout: {
+    "icon-image": "custom-marker",
+    }
+    });
+  map.addLayer({
+    id: "camp3",
+    type: "symbol",
+    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+    source: {
+    type: "geojson",
+    data: {
+    type: 'FeatureCollection',
+    features: [
+    {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+    type: "Point",
+    coordinates: [86.92478118334084, 27.967650460942664]
+    }
+    }
+    ]
+    }
+    },
+    layout: {
+    "icon-image": "custom-marker",
+    }
+    });
+  map.addLayer({
+    id: "camp4",
+    type: "symbol",
+    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+    source: {
+    type: "geojson",
+    data: {
+    type: 'FeatureCollection',
+    features: [
+    {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+    type: "Point",
+    coordinates: [86.93082159811098, 27.973526561469413]
+    }
+    }
+    ]
+    }
+    },
+    layout: {
+    "icon-image": "custom-marker",
+    }
+    });
+});
+map.loadImage("images/khumbu_icefall_deselect.png", function(error, image) {        
+  if (error) throw error;
+  map.addImage("custom-marker1", image);
+  /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
+  map.addLayer({
+    id: "khumbuIcefall",
+    type: "symbol",
+    /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+    source: {
+    type: "geojson",
+    data: {
+    type: 'FeatureCollection',
+    features: [
+    {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+    type: "Point",
+    coordinates: [86.87348093822881, 27.99618320240794]
+    }
+    }
+    ]
+    }
+    },
+    layout: {
+    "icon-image": "custom-marker1",
+    }
+  });
+});
+map.loadImage("images/south_summit_deselect.png", function(error, image) {  
+  if (error) throw error;
+  map.addImage("custom-marker2", image);
+    map.addLayer({
+      id: "southSummit",
       type: "symbol",
       /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
       source: {
@@ -46,203 +198,48 @@ function createMap(){
       properties: {},
       geometry: {
       type: "Point",
-      coordinates: [86.85719586641274, 28.00647209182954]
+      coordinates: [86.9258221361935, 27.985193461286066]
       }
       }
       ]
       }
       },
       layout: {
-      "icon-image": "custom-marker",
+      "icon-image": "custom-marker2",
       }
-      });
-      map.addLayer({
-        id: "camp1",
-        type: "symbol",
-        /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-        source: {
-        type: "geojson",
-        data: {
-        type: 'FeatureCollection',
-        features: [
-        {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-        type: "Point",
-        coordinates: [86.87624051444797, 27.98704598816326]
-        }
-        }
-        ]
-        }
-        },
-        layout: {
-        "icon-image": "custom-marker",
-        }
-        });
-        map.addLayer({
-          id: "camp2",
-          type: "symbol",
-          /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-          source: {
-          type: "geojson",
-          data: {
-          type: 'FeatureCollection',
-          features: [
-          {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-          type: "Point",
-          coordinates: [86.90335492493271, 27.980322036569067]
-          }
-          }
-          ]
-          }
-          },
-          layout: {
-          "icon-image": "custom-marker",
-          }
-          });
-          map.addLayer({
-            id: "camp3",
-            type: "symbol",
-            /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-            source: {
-            type: "geojson",
-            data: {
-            type: 'FeatureCollection',
-            features: [
-            {
-            type: 'Feature',
-            properties: {},
-            geometry: {
-            type: "Point",
-            coordinates: [86.92478118334084, 27.967650460942664]
-            }
-            }
-            ]
-            }
-            },
-            layout: {
-            "icon-image": "custom-marker",
-            }
-            });
-            map.addLayer({
-              id: "camp4",
-              type: "symbol",
-              /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-              source: {
-              type: "geojson",
-              data: {
-              type: 'FeatureCollection',
-              features: [
-              {
-              type: 'Feature',
-              properties: {},
-              geometry: {
-              type: "Point",
-              coordinates: [86.93082159811098, 27.973526561469413]
-              }
-              }
-              ]
-              }
-              },
-              layout: {
-              "icon-image": "custom-marker",
-              }
-              });
     });
-      map.loadImage("images/khumbu_icefall_deselect.png", function(error, image) {
-        
-        if (error) throw error;
-        map.addImage("custom-marker1", image);
-        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
-        map.addLayer({
-          id: "khumbuIcefall",
-          type: "symbol",
-          /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-          source: {
-          type: "geojson",
-          data: {
-          type: 'FeatureCollection',
-          features: [
-          {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-          type: "Point",
-          coordinates: [86.87348093822881, 27.99618320240794]
-          }
-          }
-          ]
-          }
-          },
-          layout: {
-          "icon-image": "custom-marker1",
-          }
-          });
-      });
-      map.loadImage("images/south_summit_deselect.png", function(error, image) {
-        
-        if (error) throw error;
-        map.addImage("custom-marker2", image);
-          map.addLayer({
-            id: "southSummit",
-            type: "symbol",
-            /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-            source: {
-            type: "geojson",
-            data: {
-            type: 'FeatureCollection',
-            features: [
-            {
-            type: 'Feature',
-            properties: {},
-            geometry: {
-            type: "Point",
-            coordinates: [86.9258221361935, 27.985193461286066]
-            }
-            }
-            ]
-            }
-            },
-            layout: {
-            "icon-image": "custom-marker2",
-            }
-            });
-          });
-            map.loadImage("images/hillary_step_deselect.png", function(error, image) {
-        
-              if (error) throw error;
-              map.addImage("custom-marker3", image);
-            map.addLayer({
-              id: "hillaryStep",
-              type: "symbol",
-              /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
-              source: {
-              type: "geojson",
-              data: {
-              type: 'FeatureCollection',
-              features: [
-              {
-              type: 'Feature',
-              properties: {},
-              geometry: {
-              type: "Point",
-              coordinates: [86.92505121693608, 27.98771791865574]
-              }
-              }
-              ]
-              }
-              },
-              layout: {
-              "icon-image": "custom-marker3",
-              }
-              });
 });
-map.loadImage("images/summit_deselect.png", function(error, image) {
-        
+
+map.loadImage("images/hillary_step_deselect.png", function(error, image) {       
+  if (error) throw error;
+  map.addImage("custom-marker3", image);
+  map.addLayer({
+  id: "hillaryStep",
+  type: "symbol",
+  /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+  source: {
+  type: "geojson",
+  data: {
+  type: 'FeatureCollection',
+  features: [
+  {
+  type: 'Feature',
+  properties: {},
+  geometry: {
+  type: "Point",
+  coordinates: [86.92505121693608, 27.98771791865574]
+  }
+  }
+  ]
+  }
+  },
+  layout: {
+  "icon-image": "custom-marker3",
+  }
+  });
+});
+
+map.loadImage("images/summit_deselect.png", function(error, image) {       
   if (error) throw error;
   map.addImage("custom-marker4", image);
   /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the map. */
@@ -270,8 +267,9 @@ map.loadImage("images/summit_deselect.png", function(error, image) {
     "icon-image": "custom-marker4",
     }
     });
+  });
 });
-});
+
 // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'baseCamp', function (e) {
@@ -282,12 +280,13 @@ map.on('click', 'baseCamp', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
-   
+  
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Base Camp");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/basecamp.jpg\" width=\"200px\" height=\"150px\">";
@@ -295,7 +294,6 @@ map.on('click', 'baseCamp', function (e) {
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color:#1499ff">17,600 ft (5,380 m)</span>';
-  //div.innerHTML = '17,600 ft (5,380 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -327,7 +325,7 @@ map.on('click', 'baseCamp', function (e) {
     //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
     //.togglePopup();
-  });
+});
 
   // When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
@@ -339,12 +337,13 @@ map.on('click', 'khumbuIcefall', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Khumbu Icefall");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
@@ -352,7 +351,6 @@ map.on('click', 'khumbuIcefall', function (e) {
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color: #14bcff">18,000 ft (5,486 m)</span>';
-  //div.innerHTML = '18,000 ft (5,486 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -377,7 +375,7 @@ map.on('click', 'khumbuIcefall', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.87348093822881, 27.99618320240794])
@@ -386,7 +384,7 @@ map.on('click', 'khumbuIcefall', function (e) {
     //.togglePopup();
   });
 
-    // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'camp1', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -396,12 +394,13 @@ map.on('click', 'camp1', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 1");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/camp1.jpg\" width=\"200px\" height=\"150px\">";
@@ -409,7 +408,6 @@ map.on('click', 'camp1', function (e) {
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color: cyan">19,900 ft (6,065 m)</span>';
-  //div.innerHTML = '19,900 ft (6,065 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -443,7 +441,7 @@ map.on('click', 'camp1', function (e) {
     //.togglePopup();
   });
 
-    // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'camp2', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -453,12 +451,13 @@ map.on('click', 'camp2', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 2");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/camp2.jpg\" width=\"200px\" height=\"150px\">";
@@ -466,7 +465,6 @@ map.on('click', 'camp2', function (e) {
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color: #7fc97f">21,300 ft (6,500 m)</span>';
-  //div.innerHTML = '21,300 ft (6,500 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -491,16 +489,16 @@ map.on('click', 'camp2', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.90335492493271, 27.980322036569067])
     //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
     //.togglePopup();
-  });
+});
 
-      // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'camp3', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -510,12 +508,13 @@ map.on('click', 'camp3', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 3");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/camp3.jpg\" width=\"200px\" height=\"150px\">";
@@ -523,7 +522,6 @@ map.on('click', 'camp3', function (e) {
   var div = document.getElementById('elevation');
   div.innerHTML = '';
   div.innerHTML = div.innerHTML = '<span style="color: #fd8d3c">24,500 ft (7,470 m)</span>';
-  //div.innerHTML = '24,500 ft (7,470 m)';
 
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
@@ -548,16 +546,16 @@ map.on('click', 'camp3', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.92478118334084, 27.967650460942664])
     //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
     //.togglePopup();
-  });
+});
 
-        // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'camp4', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -567,12 +565,13 @@ map.on('click', 'camp4', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Camp 4");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/camp4.jpg\" width=\"200px\" height=\"150px\">";
@@ -584,7 +583,6 @@ map.on('click', 'camp4', function (e) {
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
   div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7.8%</span>';
-  //div2.innerHTML = '7.8%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -605,7 +603,7 @@ map.on('click', 'camp4', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.93082159811098, 27.973526561469413])
@@ -614,7 +612,7 @@ map.on('click', 'camp4', function (e) {
     //.togglePopup();
   });
 
-          // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'southSummit', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -624,12 +622,13 @@ map.on('click', 'southSummit', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("South Summit");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/southsumit.jpg\" width=\"200px\" height=\"150px\">";
@@ -641,7 +640,6 @@ map.on('click', 'southSummit', function (e) {
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
   div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
-  //div2.innerHTML = '7%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -662,16 +660,16 @@ map.on('click', 'southSummit', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.92582516958662, 27.985105632009432])
     //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
     //.togglePopup();
-  });
+});
 
-            // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'hillaryStep', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -681,12 +679,13 @@ map.on('click', 'hillaryStep', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Hillary Step");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/hillary-step.jpg\" width=\"200px\" height=\"150px\">";
@@ -698,7 +697,6 @@ map.on('click', 'hillaryStep', function (e) {
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
   div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
-  //div2.innerHTML = '7%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -719,16 +717,16 @@ map.on('click', 'hillaryStep', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.9250293824731, 27.98713299038748])
     //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
     //.togglePopup();
-  });
+});
 
-              // When a click event occurs on a feature in the places layer, open a popup at the
+// When a click event occurs on a feature in the places layer, open a popup at the
 // location of the feature, with description HTML from its properties.
 map.on('click', 'summit', function (e) {
   var coordinates = e.features[0].geometry.coordinates.slice();
@@ -738,12 +736,13 @@ map.on('click', 'summit', function (e) {
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
   }
    
   var popup = new mapboxgl.Popup({ offset: 0 })
   .setText("Summit");
 
+  //Add things to the side panel
   var div = document.getElementById('locImg');
   div.innerHTML = '';
   div.innerHTML = "<img src=\"images/everest_sumit.jpg\" width=\"200px\" height=\"150px\">";
@@ -755,7 +754,6 @@ map.on('click', 'summit', function (e) {
   var div2 = document.getElementById('oxygen');
   div2.innerHTML = '';
   div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">6.9%</span>';
-  //div2.innerHTML = '6.9%';
   
   var div3 = document.getElementById('distToSummit');
   div3.innerHTML = '';
@@ -776,98 +774,241 @@ map.on('click', 'summit', function (e) {
   // create DOM element for the marker
   var el = document.createElement('div');
   el.id = 'marker';
-  //console.log(route.features[0].geometry.coordinates[counter]);
+
   // create the marker
   new mapboxgl.Marker(el)
     .setLngLat([86.92529072310032, 27.98803366188707])
     //.setPopup(popup) // sets a popup on this marker
     .addTo(map)
     //.togglePopup();
-  });
+});
    
 
-  // Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'baseCamp', function () {
-  map.getCanvas().style.cursor = 'pointer';
+    map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/camp_select.png", function(error, image) {
+        map.addImage("custom-marker100", image);
+        map.addLayer({
+        "id": "baseCamp100",
+        "source": "baseCamp",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "custom-marker100",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });  
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'baseCamp', function () {
-  map.getCanvas().style.cursor = '';
+    map.getCanvas().style.cursor = '';
+    map.removeLayer("baseCamp100");
+    map.removeImage("custom-marker100");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'khumbuIcefall', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/khumbu_icefall_select.png", function(error, image) {
+        map.addImage("khumbu", image);
+        map.addLayer({
+        "id": "khumbu",
+        "source": "khumbuIcefall",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "khumbu",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'khumbuIcefall', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("khumbu");
+    map.removeImage("khumbu");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'camp1', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/camp_select.png", function(error, image) {
+        map.addImage("custom-marker101", image);
+        map.addLayer({
+        "id": "baseCamp101",
+        "source": "camp1",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "custom-marker101",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'camp1', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("baseCamp101");
+    map.removeImage("custom-marker101");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'camp2', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/camp_select.png", function(error, image) {
+        map.addImage("custom-marker102", image);
+        map.addLayer({
+        "id": "baseCamp102",
+        "source": "camp2",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "custom-marker102",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   }); 
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'camp2', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("baseCamp102");
+    map.removeImage("custom-marker102");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'camp3', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/camp_select.png", function(error, image) {
+        map.addImage("custom-marker103", image);
+        map.addLayer({
+        "id": "baseCamp103",
+        "source": "camp3",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "custom-marker103",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'camp3', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("baseCamp103");
+    map.removeImage("custom-marker103");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'camp4', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/camp_select.png", function(error, image) {
+        map.addImage("custom-marker104", image);
+        map.addLayer({
+        "id": "baseCamp104",
+        "source": "camp4",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "custom-marker104",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'camp4', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("baseCamp104");
+    map.removeImage("custom-marker104");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'southSummit', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/south_summit_select.png", function(error, image) {
+        map.addImage("sSummit", image);
+        map.addLayer({
+        "id": "sSummit",
+        "source": "southSummit",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "sSummit",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'southSummit', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("sSummit");
+    map.removeImage("sSummit");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  //Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'hillaryStep', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/hillary_step_select.png", function(error, image) {
+        map.addImage("hStep", image);
+        map.addLayer({
+        "id": "hStep",
+        "source": "hillaryStep",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "hStep",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'hillaryStep', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("hStep");
+    map.removeImage("hStep");
   });
 
-  //Change the cursor to a pointer when the mouse is over the places layer.
+  ///Change the cursor to a pointer and highlight the marker when the user mouses over it.
   map.on('mouseenter', 'summit', function () {
     map.getCanvas().style.cursor = 'pointer';
+    map.loadImage("images/summit_select.png", function(error, image) {
+        map.addImage("summit99", image);
+        map.addLayer({
+        "id": "summit99",
+        "source": "summit",
+        "type": "symbol",
+        "layout": {
+        "icon-image": "summit99",
+        "icon-rotate": ["get", "bearing"],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true
+        }
+        });
+      });
   });
-  // Change it back to a pointer when it leaves.
+  //Change the cursor back to the default and un-highlight the marker when the user mouses out.
   map.on('mouseleave', 'summit', function () {
     map.getCanvas().style.cursor = '';
+    map.removeLayer("summit99");
+    map.removeImage("summit99");
   });
 
-  //});
 // A simple line from origin to destination.
 var route = {
   "type": "FeatureCollection",
@@ -880,10 +1021,10 @@ var route = {
   [ 86.9254, 27.9889, 100.0 ] ]
   }
   }]
-  };
+};
 
 var origin=[86.85719586641274, 28.00647209182954];
-  
+
   // A single point that animates along the route.
   // Coordinates are initially set to origin.
   var point = {
@@ -896,608 +1037,558 @@ var origin=[86.85719586641274, 28.00647209182954];
   "coordinates": origin
   }
   }]
-  };
+};
   
-  // Calculate the distance in kilometers between route start/end point.
-  var lineDistance = turf.lineDistance(route.features[0], 'kilometers');
-  
-  var arc = [];
-  
-  // Number of steps to use in the arc and animation, more steps means
-  // a smoother arc and animation, but too many steps will result in a
-  // low frame rate
-  var steps = 500;
-  
-  // Draw an arc between the `origin` & `destination` of the two points
-  for (var i = 0; i < lineDistance; i += lineDistance / steps) {
-    var segment = turf.along(route.features[0], i, 'kilometers');
-    arc.push(segment.geometry.coordinates);
-  }
-  
-  // Update the route with calculated arc coordinates
-  route.features[0].geometry.coordinates = arc;
-  
-  // Used to increment the value of the point measurement against the route.
-  var counter = 0;
+// Calculate the distance in kilometers between route start/end point.
+var lineDistance = turf.lineDistance(route.features[0], 'kilometers');
 
-    map.on('load', function () {
-         
-        map.addSource('contours', {
-        type: 'vector',
-        url: 'mapbox://mapbox.mapbox-terrain-v2'
-        });
-        map.addLayer({
-        'id': 'Elevation',
-        'type': 'line',
-        'source': 'contours',
-        'source-layer': 'contour',
-        'layout': {
-          'visibility': 'none',
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        'paint': {
-        'line-color': '#877b59',
-        'line-width': 1,
-        
-        }
-        });
-        
-     
-        // Add a source and layer displaying a point which will be animated in a circle.
-        map.addSource('route', {
-        "type": "geojson",
-        lineMetrics: true,
-        "data": route
-        });
-        
-        map.addSource('point', {
-        "type": "geojson",
-        "data": point
-        });
-        
-        map.addLayer({
-        "id": "route",
-        "source": "route",
-        "type": "line",
-        "paint": {
-        "line-width": 3,
-        "line-color": "#007cbf",
-        // 'line-gradient' must be specified using an expression
-        // with the special 'line-progress' property
-        'line-gradient': [
-        'interpolate',
-        ['linear'],
-        ['line-progress'],
-        0, "#1499ff",
-        0.1, "#14bcff",
-        0.3, "cyan",
-        0.5, "#7fc97f",
-        0.7, "yellow",
-        1, "#de2d26"
-        ]
-        },
-        layout: {
-        'line-cap': 'round',
-        'line-join': 'round'
-        }
-        });
-        map.loadImage("images/trek.png", function(error, image) {
-        map.addImage("custom-marker5", image);
-        map.addLayer({
+// Array used to store the coordinates of the route
+var arc = [];
+
+// Number of steps to use in the arc and animation, more steps means
+// a smoother arc and animation, but too many steps will result in a
+// low frame rate
+var steps = 500;
+
+// Draw an arc between the `origin` & `destination` of the two points
+for (var i = 0; i < lineDistance; i += lineDistance / steps) {
+  var segment = turf.along(route.features[0], i, 'kilometers');
+  arc.push(segment.geometry.coordinates);
+}
+
+// Update the route with calculated arc coordinates
+route.features[0].geometry.coordinates = arc;
+
+// Used to increment the value of the point measurement against the route.
+var counter = 0;
+
+map.on('load', function () {
+    map.addSource('contours', {
+      type: 'vector',
+      url: 'mapbox://mapbox.mapbox-terrain-v2'
+    });
+    map.addLayer({
+      'id': 'Elevation',
+      'type': 'line',
+      'source': 'contours',
+      'source-layer': 'contour',
+      'layout': {
+        'visibility': 'none',
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      'paint': {
+      'line-color': '#877b59',
+      'line-width': 1,   
+      }
+    });
+    
+  
+    // Add a source and layer displaying a point which will be animated in a circle.
+    map.addSource('route', {
+      "type": "geojson",
+      lineMetrics: true,
+      "data": route
+    });
+    
+    map.addSource('point', {
+      "type": "geojson",
+      "data": point
+    });
+    
+    map.addLayer({
+      "id": "route",
+      "source": "route",
+      "type": "line",
+      "paint": {
+      "line-width": 3,
+      "line-color": "#007cbf",
+      // 'line-gradient' must be specified using an expression
+      // with the special 'line-progress' property
+      'line-gradient': [
+      'interpolate',
+      ['linear'],
+      ['line-progress'],
+      0, "#1499ff",
+      0.1, "#14bcff",
+      0.3, "cyan",
+      0.5, "#7fc97f",
+      0.7, "yellow",
+      1, "#de2d26"
+      ]
+      },
+      layout: {
+      'line-cap': 'round',
+      'line-join': 'round'
+      }
+    });
+    map.loadImage("images/trek.png", function(error, image) {
+      map.addImage("custom-marker5", image);
+      map.addLayer({
         "id": "point",
         "source": "point",
         "type": "symbol",
         "layout": {
-        "icon-image": "custom-marker5",
-        "icon-rotate": ["get", "bearing"],
-        "icon-rotation-alignment": "map",
-        "icon-allow-overlap": true,
-        "icon-ignore-placement": true
+          "icon-image": "custom-marker5",
+          "icon-rotate": ["get", "bearing"],
+          "icon-rotation-alignment": "map",
+          "icon-allow-overlap": true,
+          "icon-ignore-placement": true
         }
-        });
       });
-         
-        var test = [[86.85719586641274, 28.00647209182954], [86.87345895826398, 27.996277774768647], 
-        [86.87623440610264, 27.987051652940377], [86.90329584448963, 27.98032248621871], 
-        [86.92471347509948, 27.967655327696573], [86.93082117375526, 27.97352579739608], 
-        [86.9258221361935, 27.985193461286066], [86.92505121693608, 27.98771791865574], 
-        [86.9254, 27.9889]];
-        var flag = false; // detect whether popup triggers
-        var flagStop = true;// flag stop and start
+    });
 
+    //Array used to store the coordinates of the POIs (markers)
+    var test = [[86.85719586641274, 28.00647209182954], [86.87345895826398, 27.996277774768647], 
+    [86.87623440610264, 27.987051652940377], [86.90329584448963, 27.98032248621871], 
+    [86.92471347509948, 27.967655327696573], [86.93082117375526, 27.97352579739608], 
+    [86.9258221361935, 27.985193461286066], [86.92505121693608, 27.98771791865574], 
+    [86.9254, 27.9889]];
+    var flag = false; //detect whether popup triggers
+    var flagStop = true; //flag stop and start
 
-        function animate() {
-       
+  function animate() {
+    // Update point geometry to a new position based on counter denoting
+    // the index to access the arc.
+    point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
+    
+    
+    // Calculate the bearing to ensure the icon is rotated to match the route arc
+    // The bearing is calculate between the current point and the next point, except
+    // at the end of the arc use the previous point and the current point
+    point.features[0].properties.bearing = turf.bearing(
+      turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter - 1 : counter]),
+      turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter : counter + 1])
+    );
+    
+    // Update the source with this new data.
+    map.getSource('point').setData(point);
+    
+    // Request the next frame of animation so long the end has not been reached.
+    if (counter <= steps) {
+      //console.log(point.features[0].geometry.coordinates);
+      for (a in test) {
+        if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
+          flag = true;
 
-        // Update point geometry to a new position based on counter denoting
-        // the index to access the arc.
-        point.features[0].geometry.coordinates = route.features[0].geometry.coordinates[counter];
-        
-        
-        // Calculate the bearing to ensure the icon is rotated to match the route arc
-        // The bearing is calculate between the current point and the next point, except
-        // at the end of the arc use the previous point and the current point
-        point.features[0].properties.bearing = turf.bearing(
-        turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter - 1 : counter]),
-        turf.point(route.features[0].geometry.coordinates[counter >= steps ? counter : counter + 1])
-        );
-        
-        // Update the source with this new data.
-        map.getSource('point').setData(point);
-        
-        // Request the next frame of animation so long the end has not been reached.
-        if (counter <= steps) {
-          console.log(point.features[0].geometry.coordinates);
-          for (a in test) {
-            if (point.features[0].geometry.coordinates[0] == test[a][0] && point.features[0].geometry.coordinates[1] == test[a][1]){
-              flag = true;
-           
-              if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
+          //Check to see if the animation has reached this point
+          if (test[a][0] == 86.85719586641274 && test[a][1] == 28.00647209182954) {
+            var popup = new mapboxgl.Popup({ offset: 0 })
+              .setText("Base Camp");
 
-                var popup = new mapboxgl.Popup({ offset: 0 })
-                  .setText("Base Camp");
+              //Add things to the side panel
+              var div = document.getElementById('locImg');
+              div.innerHTML = '';
+              div.innerHTML = "<img src=\"images/basecamp.jpg\" width=\"200px\" height=\"150px\">";
 
-                  var div = document.getElementById('locImg');
-                  div.innerHTML = '';
-                  div.innerHTML = "<img src=\"images/basecamp.jpg\" width=\"200px\" height=\"150px\">";
+              var div = document.getElementById('elevation');
+              div.innerHTML = '';
+              div.innerHTML = div.innerHTML = '<span style="color:#a4a4ff">17,600 ft (5,380 m)</span>';
 
-                  var div = document.getElementById('elevation');
-                  div.innerHTML = '';
-                  div.innerHTML = div.innerHTML = '<span style="color:#a4a4ff">17,600 ft (5,380 m)</span>';
-                  //div.innerHTML = '17,600 ft (5,380 m)';
-    
-                  var div2 = document.getElementById('oxygen');
-                  div2.innerHTML = '';
-                  div2.innerHTML = '11% (21% at Sea Level)';
-                  
-                  var div3 = document.getElementById('distToSummit');
-                  div3.innerHTML = '';
-                  div3.innerHTML = '11,435 ft (3,485 m)';
-    
-                  var div4 = document.getElementById('distToBaseCamp');
-                  div4.innerHTML = '';
-                  div4.innerHTML = 'You are here!';
-    
-                  var div5 = document.getElementById('info');
-                  div5.innerHTML = '';
-                  div5.innerHTML = 'This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
-                  
-                  var div6 = document.getElementById('Location');
-                  div6.innerHTML = '';
-                  div6.innerHTML = 'Base Camp';
-                }
-    
-                if (test[a][0] == 86.87345895826398 && test[a][1] == 27.996277774768647) {
-                  //setTimeout(function(){requestAnimationFrame(animate)}, 2000);
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Khumbu Icefall");
-                  
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
-
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: royalblue">18,000 ft (5,486 m)</span>';
-                    //div.innerHTML = '18,000 ft (5,486 m)';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = '10.5%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '11,035 (3,364 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '400 ft (106 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'Take care in this area, the ice and crevasses can be dangerous to cross.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Khumbu Icefall';
-                }
-    
-                if (test[a][0] == 86.87623440610264 && test[a][1] == 27.987051652940377) {
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Camp 1");
-
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/camp1.jpg\" width=\"200px\" height=\"150px\">";
-
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: cyan">19,900 ft (6,065 m)</span>';
-                    //div.innerHTML = '19,900 ft (6,065 m)';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = '9.7%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '9,135 ft (2,785 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '2,300 ft (685 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Camp 1';
-                }
-    
-                if (test[a][0] == 86.90329584448963 && test[a][1] == 27.98032248621871) {
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Camp 2");
-                  
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/camp2.jpg\" width=\"200px\" height=\"150px\">";
-
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: #7fc97f">21,300 ft (6,500 m)</span>';
-                    //div.innerHTML = '21,300 ft (6,500 m)';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = '9.4%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '7,735 ft (2,350 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '3,700 ft (1,120 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'Grab some tea, there'+"'s"+' still a fair bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Camp 2';
-                }
-    
-                if (test[a][0] == 86.92471347509948 && test[a][1] == 27.967655327696573) {
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Camp 3");
-                  
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/camp3.jpg\" width=\"200px\" height=\"150px\">";
-
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: #fd8d3c">24,500 ft (7,470 m)</span>';
-                    //div.innerHTML = '24,500 ft (7,470 m)';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = '8.7%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '4,535 ft (1,380 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '6,900 ft (2,090 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'Get ready for more climbing, the Geneva Spur and Yellow Band are coming up, and then one of the great passive challenges of Everest.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Camp 3';
-                }
-    
-                if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Camp 4");
-                  
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/camp4.jpg\" width=\"200px\" height=\"150px\">";
-
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = '<span style="color: #f16913">26,000 ft (7,925 m)</span>';
-          
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7.8%</span>';
-                    //div2.innerHTML = '7.8%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '3,035 ft (925 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '8,400 ft (2,545 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. Oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Camp 4';
-                  }
-    
-                if (test[a][0] == 86.9258221361935 && test[a][1] == 27.985193461286066) {
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("South Summit");
-
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/southsumit.jpg\" width=\"200px\" height=\"150px\">";
-
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
-                    //div2.innerHTML = '7%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '335 ft (102 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '11,100 ft (3,368 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'A sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'South Summit';
-                }
-    
-                if (test[a][0] == 86.92505121693608 && test[a][1] == 27.98771791865574) {
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Hillary Step");
-
-                    var hillary={
-                      bearing: 27,
-                      center: [86.9250293824731, 27.98713299038748],
-                      zoom: 15
-                      } 
-                    
-                      //var activeChapterName = 'hillary';
-                       
-                      map.flyTo(hillary);
-                   
-                      
-
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/hillary-step.jpg\" width=\"200px\" height=\"150px\">";
-    
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,840 ft (8,790 m)</span>';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
-                    //div2.innerHTML = '7%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = '195 ft (60 m)';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '11,240 ft (3,410 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'Named in honor of Sir Edmund Hillary and Tenzing Norgay, this is the most difficult portion of the climb. It was affected by the 2015 Nepal earthquake, but still remains the last major challenge before the summit.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Hillary Step';
-                }
-    
-                if (test[a][0] == 86.9254 && test[a][1] == 27.9889) {
-                  //console.log("test10")
-                  var popup = new mapboxgl.Popup({ offset: 0 })
-                    .setText("Summit");
-
-                    var div = document.getElementById('locImg');
-                    div.innerHTML = '';
-                    div.innerHTML = "<img src=\"images/everest_sumit.jpg\" width=\"200px\" height=\"150px\">";
-    
-                    var div = document.getElementById('elevation');
-                    div.innerHTML = '';
-                    div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">29,035 ft (8,850 m)</span>';
-    
-                    var div2 = document.getElementById('oxygen');
-                    div2.innerHTML = '';
-                    div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">6.9%</span>';
-                    //div2.innerHTML = '6.9%';
-                    
-                    var div3 = document.getElementById('distToSummit');
-                    div3.innerHTML = '';
-                    div3.innerHTML = 'You are here!';
-      
-                    var div4 = document.getElementById('distToBaseCamp');
-                    div4.innerHTML = '';
-                    div4.innerHTML = '11,435 ft (3,485 m)';
-      
-                    var div5 = document.getElementById('info');
-                    div5.innerHTML = '';
-                    div5.innerHTML = 'Congratulations, you made it! Take a moment to look around and savor your accomplishment, but don'+"'t"+' tarry too long- you still have to make it back down safely.';
-    
-                    var div6 = document.getElementById('Location');
-                    div6.innerHTML = '';
-                    div6.innerHTML = 'Summit';
-
-                    //clickReplay.addEventListener("click", _listener, true);
-                    //});
-                   // clickReplay.addEventListener("click", _listener, true);
-                    //hasPlayed = true;
-                }
-  
-              // create DOM element for the marker
-              var el = document.createElement('div');
-              el.id = 'marker';
-              //console.log(route.features[0].geometry.coordinates[counter]);
-              // create the marker
-              new mapboxgl.Marker(el)
-                .setLngLat(test[a])
-                //.setPopup(popup) // sets a popup on this marker
-                .addTo(map)
-                //.togglePopup();
-
-              // if equals test point
+              var div2 = document.getElementById('oxygen');
+              div2.innerHTML = '';
+              div2.innerHTML = '11% (21% at Sea Level)';
               
+              var div3 = document.getElementById('distToSummit');
+              div3.innerHTML = '';
+              div3.innerHTML = '11,435 ft (3,485 m)';
+
+              var div4 = document.getElementById('distToBaseCamp');
+              div4.innerHTML = '';
+              div4.innerHTML = 'You are here!';
+
+              var div5 = document.getElementById('info');
+              div5.innerHTML = '';
+              div5.innerHTML = 'This is the starting point of your ascent; make sure you’ve spent enough time acclimatizing before beginning!';
               
+              var div6 = document.getElementById('Location');
+              div6.innerHTML = '';
+              div6.innerHTML = 'Base Camp';
             }
 
+            if (test[a][0] == 86.87345895826398 && test[a][1] == 27.996277774768647) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Khumbu Icefall");
+              
+                var div = document.getElementById('locImg');
+                div.innerHTML = '';
+                div.innerHTML = "<img src=\"images/Khumbu-Icefall.jpg\" width=\"200px\" height=\"150px\">";
 
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = div.innerHTML = '<span style="color: royalblue">18,000 ft (5,486 m)</span>';
 
-          }
-        if (counter != steps) {
-          if (flag) {
-            flag = false;
-            if (!flagStop){
-              setTimeout(function(){requestAnimationFrame(animate)}, 2000);
-            };
-          } else {
-            if (!flagStop){
-              setTimeout(function(){requestAnimationFrame(animate)}, 50);
-            };
-            //setTimeout(function(){requestAnimationFrame(animate)}, 100);
-          }
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '10.5%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '11,035 (3,364 m)';
+
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '400 ft (106 m)';
+
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Take care in this area, the ice and crevasses can be dangerous to cross.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Khumbu Icefall';
+            }
+
+            if (test[a][0] == 86.87623440610264 && test[a][1] == 27.987051652940377) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 1");
+
+                var div = document.getElementById('locImg');
+                div.innerHTML = '';
+                div.innerHTML = "<img src=\"images/camp1.jpg\" width=\"200px\" height=\"150px\">";
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = div.innerHTML = '<span style="color: cyan">19,900 ft (6,065 m)</span>';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '9.7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '9,135 ft (2,785 m)';
+
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '2,300 ft (685 m)';
+
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 1';
+            }
+
+            if (test[a][0] == 86.90329584448963 && test[a][1] == 27.98032248621871) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 2");
+              
+                var div = document.getElementById('locImg');
+                div.innerHTML = '';
+                div.innerHTML = "<img src=\"images/camp2.jpg\" width=\"200px\" height=\"150px\">";
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = div.innerHTML = '<span style="color: #7fc97f">21,300 ft (6,500 m)</span>';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '9.4%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '7,735 ft (2,350 m)';
+
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '3,700 ft (1,120 m)';
+
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Grab some tea, there'+"'s"+' still a fair bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 2';
+            }
+
+            if (test[a][0] == 86.92471347509948 && test[a][1] == 27.967655327696573) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 3");
+              
+                var div = document.getElementById('locImg');
+                div.innerHTML = '';
+                div.innerHTML = "<img src=\"images/camp3.jpg\" width=\"200px\" height=\"150px\">";
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = div.innerHTML = '<span style="color: #fd8d3c">24,500 ft (7,470 m)</span>';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = '8.7%';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '4,535 ft (1,380 m)';
+
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '6,900 ft (2,090 m)';
+
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'Get ready for more climbing, the Geneva Spur and Yellow Band are coming up, and then one of the great passive challenges of Everest.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 3';
+            }
+
+            if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Camp 4");
+              
+                var div = document.getElementById('locImg');
+                div.innerHTML = '';
+                div.innerHTML = "<img src=\"images/camp4.jpg\" width=\"200px\" height=\"150px\">";
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = '<span style="color: #f16913">26,000 ft (7,925 m)</span>';
+      
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7.8%</span>';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '3,035 ft (925 m)';
+
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '8,400 ft (2,545 m)';
+
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. Oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'Camp 4';
+              }
+
+            if (test[a][0] == 86.9258221361935 && test[a][1] == 27.985193461286066) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("South Summit");
+
+                var div = document.getElementById('locImg');
+                div.innerHTML = '';
+                div.innerHTML = "<img src=\"images/southsumit.jpg\" width=\"200px\" height=\"150px\">";
+
+                var div = document.getElementById('elevation');
+                div.innerHTML = '';
+                div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,700 ft (8,748 m)</span>';
+
+                var div2 = document.getElementById('oxygen');
+                div2.innerHTML = '';
+                div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
+                
+                var div3 = document.getElementById('distToSummit');
+                div3.innerHTML = '';
+                div3.innerHTML = '335 ft (102 m)';
+
+                var div4 = document.getElementById('distToBaseCamp');
+                div4.innerHTML = '';
+                div4.innerHTML = '11,100 ft (3,368 m)';
+
+                var div5 = document.getElementById('info');
+                div5.innerHTML = '';
+                div5.innerHTML = 'A sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
+
+                var div6 = document.getElementById('Location');
+                div6.innerHTML = '';
+                div6.innerHTML = 'South Summit';
+            }
+
+            //Check if the animation has reached this point
+            if (test[a][0] == 86.92505121693608 && test[a][1] == 27.98771791865574) {
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Hillary Step");
+
+              var hillary={
+                bearing: 27,
+                center: [86.9250293824731, 27.98713299038748],
+                zoom: 15
+              } 
+                    
+              map.flyTo(hillary);
+                
+              var div = document.getElementById('locImg');
+              div.innerHTML = '';
+              div.innerHTML = "<img src=\"images/hillary-step.jpg\" width=\"200px\" height=\"150px\">";
+
+              var div = document.getElementById('elevation');
+              div.innerHTML = '';
+              div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">28,840 ft (8,790 m)</span>';
+
+              var div2 = document.getElementById('oxygen');
+              div2.innerHTML = '';
+              div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">7%</span>';
+              
+              var div3 = document.getElementById('distToSummit');
+              div3.innerHTML = '';
+              div3.innerHTML = '195 ft (60 m)';
+
+              var div4 = document.getElementById('distToBaseCamp');
+              div4.innerHTML = '';
+              div4.innerHTML = '11,240 ft (3,410 m)';
+
+              var div5 = document.getElementById('info');
+              div5.innerHTML = '';
+              div5.innerHTML = 'Named in honor of Sir Edmund Hillary and Tenzing Norgay, this is the most difficult portion of the climb. It was affected by the 2015 Nepal earthquake, but still remains the last major challenge before the summit.';
+
+              var div6 = document.getElementById('Location');
+              div6.innerHTML = '';
+              div6.innerHTML = 'Hillary Step';
+            }
+
+            if (test[a][0] == 86.9254 && test[a][1] == 27.9889) {
+              //console.log("test10")
+              var popup = new mapboxgl.Popup({ offset: 0 })
+                .setText("Summit");
+
+              var div = document.getElementById('locImg');
+              div.innerHTML = '';
+              div.innerHTML = "<img src=\"images/everest_sumit.jpg\" width=\"200px\" height=\"150px\">";
+
+              var div = document.getElementById('elevation');
+              div.innerHTML = '';
+              div.innerHTML = div.innerHTML = '<span style="color: rgb(201, 34, 34)">29,035 ft (8,850 m)</span>';
+
+              var div2 = document.getElementById('oxygen');
+              div2.innerHTML = '';
+              div2.innerHTML = div2.innerHTML = '<span style="color: rgb(201, 34, 34)">6.9%</span>';
+              
+              var div3 = document.getElementById('distToSummit');
+              div3.innerHTML = '';
+              div3.innerHTML = 'You are here!';
+
+              var div4 = document.getElementById('distToBaseCamp');
+              div4.innerHTML = '';
+              div4.innerHTML = '11,435 ft (3,485 m)';
+
+              var div5 = document.getElementById('info');
+              div5.innerHTML = '';
+              div5.innerHTML = 'Congratulations, you made it! Take a moment to look around and savor your accomplishment, but don'+"'t"+' tarry too long- you still have to make it back down safely.';
+
+              var div6 = document.getElementById('Location');
+              div6.innerHTML = '';
+              div6.innerHTML = 'Summit';
+            }
+
+          // create DOM element for the marker
+          var el = document.createElement('div');
+          el.id = 'marker';
+
+          // create the marker
+          new mapboxgl.Marker(el)
+            .setLngLat(test[a])
+            //.setPopup(popup) // sets a popup on this marker
+            .addTo(map)
+            //.togglePopup();
         }
+      }
 
-         
-        }
-        
-        counter = counter + 1;
-        
-        } //animate end  
-        $('#replay').click(function() {
-          if (counter == steps + 1) {
-            requestAnimationFrame(animate);
-          }
-          // Set the coordinates of the original point back to origin
-          point.features[0].geometry.coordinates = origin;
-          
-          // Update the source layer
-          map.getSource('point').setData(point);
-          
-          // Reset the counter
-          counter = 0;
-          var baseCamp={
-            bearing: 0,
-            center: [86.909, 27.988],
-            zoom: 13
-            } 
-       
-            map.flyTo(baseCamp);
-
-            //animate(counter);
-
-            //setTimeout(function(){requestAnimationFrame(animate)}, 50);
-
-            /*if (flag) {
-              flag = false;
-              if (!flagStop){
-                setTimeout(function(){requestAnimationFrame(animate)}, 2000);
-              };
-            } */
-           
-          // Restart the animation.
-          //setTimeout(function(){requestAnimationFrame(animate)}, 100);
-          //animate(counter);
-          });
-
-        $("#play").click(function(){
-        
-          
-          $("i", this).toggleClass("fas fa-play fas fa-pause");
-          
-          //requestAnimationFrame(animate).stop();
-          if (flagStop)
-          {
-            flagStop = false;
-            setTimeout(function(){requestAnimationFrame(animate)}, 50);
-          }else{
-            //setTimeout(function(){requestAnimationFrame(animate)}, 9999999999);
-            //setTimeout(function(){(animate)}, 2000);
-            flagStop = true;
-          }
-          
-        });
-        animate(counter);
-        });
-        var toggleableLayerIds = [ 'Elevation'];
-
- 
-        for (var i = 0; i < toggleableLayerIds.length; i++) {
-        var id = toggleableLayerIds[i];
-         
-        var link = document.createElement('a');
-        link.href = '#';
-        //link.className = 'active';
-        link.innerHTML ='<i class="fas fa-mountain"></i>';
-         
-        link.onclick = function (e) {
-        var clickedLayer = id;
-        e.preventDefault();
-        e.stopPropagation();
-         
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-         
-        if (visibility === 'visible') {
-        map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-        this.className = '';
-        } else {
-        this.className = 'active';
-        map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-        }
+    if (counter != steps) {
+      if (flag) {
+        flag = false;
+        //Pause the animation for 2 seconds (2000 milliseconds) when it reaches each POI (marker)
+        if (!flagStop){
+          setTimeout(function(){requestAnimationFrame(animate)}, 2000);
         };
-         
-        var layers = document.getElementById('menu');
-        layers.appendChild(link);
-        }
+        //Continue playing the animation after the pause
+      } else {
+        if (!flagStop){
+          setTimeout(function(){requestAnimationFrame(animate)}, 50);
+        };
+      }
+    } 
+  }
+  counter = counter + 1;
+} //end of the animate() function
+
+  //Replay button that restarts the animation
+  $('#replay').click(function() {
+    if (counter == steps + 1) {
+      requestAnimationFrame(animate);
+    }
+    // Set the coordinates of the original point back to origin
+    point.features[0].geometry.coordinates = origin;
+    
+    // Update the source layer
+    map.getSource('point').setData(point);
+    
+    // Reset the counter
+    counter = 0;
+    var baseCamp={
+      bearing: 0,
+      center: [86.909, 27.988],
+      zoom: 13
+    } 
+    map.flyTo(baseCamp);
+  });
+
+  //Play button that starts the animation
+  $("#play").click(function(){
+    $("i", this).toggleClass("fas fa-play fas fa-pause");
+    if (flagStop)
+    {
+      flagStop = false;
+      setTimeout(function(){requestAnimationFrame(animate)}, 50);
+    }else{
+      flagStop = true;
+    } 
+  });
+  animate(counter);
+});
+        
+  var toggleableLayerIds = [ 'Elevation'];
+
+  for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+      
+    var link = document.createElement('a');
+    link.href = '#';
+    link.innerHTML ='<i class="fas fa-mountain"></i>';
+      
+    link.onclick = function (e) {
+      var clickedLayer = id;
+      e.preventDefault();
+      e.stopPropagation();
+        
+      var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+        
+      if (visibility === 'visible') {
+      map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+      this.className = '';
+      } else {
+      this.className = 'active';
+      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+      }
+    };
+      
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+  }
 };
 
+$("#buttonweather").click(function() {
+  $("#weatherwidget").toggle();
+});
 
-$("#buttonweather").click(function(){
-    $("#weatherwidget").toggle();
-  });
- $("#go").click(function() {
-    $("#play").addClass("highlight");
-  });
-   $("#play").click(function() {
-      $("#play").removeClass("highlight");
-    });
-//$(document).ready(); // calling create map function on document ready
+$("#go").click(function() {
+  $("#play").addClass("highlight");
+});
 
-$(document).ready(function(){        
-    $('#welcomeWindow').modal('show');
-    createMap();
-   });
+$("#play").click(function() {
+  $("#play").removeClass("highlight");
+});
+
+$(document).ready(function() {        
+  $('#welcomeWindow').modal('show');
+  createMap();
+});
