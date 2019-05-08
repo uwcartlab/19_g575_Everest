@@ -1563,11 +1563,11 @@ map.on('load', function () {
       var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
         
       if (visibility === 'visible') {
-      map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-      this.className = '';
+        map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+        this.className = '';
       } else {
-      this.className = 'active';
-      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        this.className = 'active';
+        map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
       }
     };
       
