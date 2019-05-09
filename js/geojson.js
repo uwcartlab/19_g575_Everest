@@ -1,8 +1,3 @@
-// Global variable to hold layer
-var searchLayer;
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
 
 //function to instantiate the Leaflet map
 function createMap(){
@@ -1576,10 +1571,12 @@ console.log(test)
   }
 };
 
+/*toggling weather widget with animation*/
 $("#buttonweather").click(function() {
-  $("#weatherwidget").slideToggle(1000);
+  $("#weatherwidget").slideToggle(500);
 });
 
+/*Higlighting the play button on the close of welcome window */
 $("#go").click(function() {
   $("#play").addClass("highlight");
 });
