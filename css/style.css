@@ -645,4 +645,6 @@ html, body, #container {
    padding-left: 11px;
   }
 
-  .pannelMenu li{padding-bottom: 5px;}
+  .pannelMenu li{
+    padding-bottom: 3px;
+  }

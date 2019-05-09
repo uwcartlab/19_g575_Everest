@@ -366,7 +366,7 @@ map.on('click', 'khumbuIcefall', function (e) {
 
   var div5 = document.getElementById('info');
   div5.innerHTML = '';
-  div5.innerHTML = 'Take care in this area, the ice and crevasses can be dangerous to cross.';
+  div5.innerHTML = 'Take extra care in this area, the ice and crevasses can be dangerous to cross.';
 
   var div6 = document.getElementById('Location');
   div6.innerHTML = '';
@@ -423,7 +423,7 @@ map.on('click', 'camp1', function (e) {
 
   var div5 = document.getElementById('info');
   div5.innerHTML = '';
-  div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent';
+  div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent.';
 
   var div6 = document.getElementById('Location');
   div6.innerHTML = '';
@@ -480,7 +480,7 @@ map.on('click', 'camp2', function (e) {
 
   var div5 = document.getElementById('info');
   div5.innerHTML = '';
-  div5.innerHTML = 'Grab some tea, there'+"'s"+' still a fair bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
+  div5.innerHTML = 'Grab some tea, there'+"'s"+' still quite a bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
 
   var div6 = document.getElementById('Location');
   div6.innerHTML = '';
@@ -537,7 +537,7 @@ map.on('click', 'camp3', function (e) {
 
   var div5 = document.getElementById('info');
   div5.innerHTML = '';
-  div5.innerHTML = 'Get ready for more climbing, the Geneva Spur and Yellow Band are coming up, and then one of the great passive challenges of Everest.';
+  div5.innerHTML = 'Rest and get ready for more climbing- you are nearing one of the great passive challenges of Everest.';
 
   var div6 = document.getElementById('Location');
   div6.innerHTML = '';
@@ -594,7 +594,7 @@ map.on('click', 'camp4', function (e) {
 
   var div5 = document.getElementById('info');
   div5.innerHTML = '';
-  div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. Oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+  div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. The oxygen content here on up is not sufficient to sustain human life for an extended period of time. Make sure you have supplemental oxygen near, especially if you will be spending an long time above 8,000 meters.';
 
   var div6 = document.getElementById('Location');
   div6.innerHTML = '';
@@ -651,7 +651,7 @@ map.on('click', 'southSummit', function (e) {
 
   var div5 = document.getElementById('info');
   div5.innerHTML = '';
-  div5.innerHTML = 'A sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
+  div5.innerHTML = 'The sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
 
   var div6 = document.getElementById('Location');
   div6.innerHTML = '';
@@ -1232,7 +1232,7 @@ map.on('load', function () {
 
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Take care in this area, the ice and crevasses can be dangerous to cross.';
+                div5.innerHTML = 'Take extra care in this area, the ice and crevasses can be dangerous to cross.';
 
                 var div6 = document.getElementById('Location');
                 div6.innerHTML = '';
@@ -1265,7 +1265,7 @@ map.on('load', function () {
 
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent';
+                div5.innerHTML = 'You made it past the icefall, so take a break here and recover for the rest of the ascent.';
 
                 var div6 = document.getElementById('Location');
                 div6.innerHTML = '';
@@ -1298,7 +1298,7 @@ map.on('load', function () {
 
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Grab some tea, there'+"'s"+' still a fair bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
+                div5.innerHTML = 'Grab some tea, there'+"'s"+' still quite a bit of climbing left! The base of the mountain Lhostse can be seen here as well.';
 
                 var div6 = document.getElementById('Location');
                 div6.innerHTML = '';
@@ -1331,14 +1331,14 @@ map.on('load', function () {
 
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'Get ready for more climbing, the Geneva Spur and Yellow Band are coming up, and then one of the great passive challenges of Everest.';
+                div5.innerHTML = 'Rest and get ready for more climbing- you are nearing one of the great passive challenges of Everest.';
 
                 var div6 = document.getElementById('Location');
                 div6.innerHTML = '';
                 div6.innerHTML = 'Camp 3';
             }
 
-            if (test[a][0] == 86.93082159811098 && test[a][1] == 27.973526561469413) {
+            if (test[a][0] == 86.93082117375526 && test[a][1] == 27.97352579739608) {
               var popup = new mapboxgl.Popup({ offset: 0 })
                 .setText("Camp 4");
               
@@ -1364,7 +1364,7 @@ map.on('load', function () {
 
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. Oxygen content is not sufficient to sustain human life. Make sure you have supplemental oxygen near, especially if you will be spending an extended amount of time above 8,000 meters.';
+                div5.innerHTML = 'WARNING: This location marks the start of the Deathzone. The oxygen content here on up is not sufficient to sustain human life for an extended period of time. Make sure you have supplemental oxygen near, especially if you will be spending an long time above 8,000 meters.';
 
                 var div6 = document.getElementById('Location');
                 div6.innerHTML = '';
@@ -1397,7 +1397,7 @@ map.on('load', function () {
 
                 var div5 = document.getElementById('info');
                 div5.innerHTML = '';
-                div5.innerHTML = 'A sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
+                div5.innerHTML = 'The sub-peak of the mountain, take a moment to look around and see just how far you'+"'ve"+' come.';
 
                 var div6 = document.getElementById('Location');
                 div6.innerHTML = '';
@@ -1483,7 +1483,7 @@ map.on('load', function () {
           // create DOM element for the marker
           var el = document.createElement('div');
           el.id = 'marker';
-
+console.log(test)
           // create the marker
           new mapboxgl.Marker(el)
             .setLngLat(test[a])
