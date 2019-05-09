@@ -572,8 +572,10 @@ html, body, #container {
       z-index: 1;
       position: absolute;
       width: 250px;
-      top: 40%;
+      top: 5%;
+      box-shadow: 1px 2px 3px 4px #cccccca1;
       left: 3.5%;
+      background-color: rgb(221, 254, 255);
     }
 
     #buttonweather{
@@ -648,3 +650,10 @@ html, body, #container {
   .pannelMenu li{
     padding-bottom: 3px;
   }
+
+
+ .btnMenu{width: 42px;
+  height: 38px;
+  border: 1px solid #ddd;
+
+} 

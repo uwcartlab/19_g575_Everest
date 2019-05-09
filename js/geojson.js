@@ -1577,7 +1577,7 @@ console.log(test)
 };
 
 $("#buttonweather").click(function() {
-  $("#weatherwidget").toggle();
+  $("#weatherwidget").slideToggle(1000);
 });
 
 $("#go").click(function() {
